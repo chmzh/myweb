@@ -19,7 +19,7 @@ public class SystemInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		if(modelAndView!=null && modelAndView.getModel()!=null){
-			modelAndView.getModel().put("home", URLConfig.HOME);
+			modelAndView.getModel().put("home", URLConfig.HOME_DIR);
 			
 		}
 		

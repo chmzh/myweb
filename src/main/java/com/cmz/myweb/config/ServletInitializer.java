@@ -13,6 +13,8 @@ import org.springframework.web.servlet.support.AbstractDispatcherServletInitiali
 import org.springframework.web.util.Log4jConfigListener;
 import org.springframework.web.util.WebAppRootListener;
 
+import com.cmz.myweb.context.ContextUtil;
+
 public class ServletInitializer extends AbstractDispatcherServletInitializer {
 
 	
@@ -70,7 +72,7 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
         //servletContext.setInitParameter("log4jRefreshInterval", "2000"); //2秒检查一次日志等级的改变
         //servletContext.addListener(Log4jConfigListener.class);
         
-        //ContextUtil.setServletContext(servletContext);
+        ContextUtil.setServletContext(servletContext);
         
 		//servletContext.addServlet("dispatcher", DispatcherServlet.class).addMapping("/*");
 		
