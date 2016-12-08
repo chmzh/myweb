@@ -22,7 +22,8 @@ public class URLConfig {
 	public final static String GAMESERVER = "gameserver/";
 	public final static String SYSMENU = "sysmenu/";
 	public final static String SCHEMA = "schema/";
-	
+	public final static String BINDUSER = "binduser";      //删除动作
+	public final static String BINDUSER_AC = "binduser.do";      //删除动作
 	public final static String STATISTIC = "statistic/";           //统计 控制器
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
@@ -32,4 +33,7 @@ public class URLConfig {
 	public final static String EDIT_AC = "edit.do";    //编辑动作
 	public final static String DEL = "del";            //删除表单页面
 	public final static String DEL_AC = "del.do";      //删除动作
+	
+	public final static String POWER = "power";        //权限管理
+	public final static String POWER_AC = "power.do";  //保存权限
 }

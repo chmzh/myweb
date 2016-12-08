@@ -1,0 +1,87 @@
+#parse ( "header.html" )
+
+<body>
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           用户管理 <a href="${home}user/list">返回</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" action="user/schema.do" method="post">
+                                    <input type="hidden" name="userid" id="userid" value="${userid}"> 
+
+
+											<label>选择架构</label>
+											
+	
+											<label class="checkbox-inline">
+										  <input type="checkbox" name="schemaid" />
+										</label>
+
+											<br>
+                                                                       
+                                     <div class="form-group">
+                                     <button class="btn btn-success" type="submit">提交</button>
+                                     </div>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+
+
+    <!-- jQuery -->
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/dist/js/sb-admin-2.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		  /* $("#gameid").change(function(){
+			  var v = $(this).children('option:selected').val(); 
+			  $.post("gamepartner/ajax_ps",
+					  {
+				  		gameflag : v
+					  },
+					  function(data,status){
+				  
+				  //$("#partnerflag").children('option').remove();
+				  $("#partnerid").empty();
+				  for(var i = 0; i < data.length; i++)
+				    {
+					  $("#partnerid").append("<option value="+data[i].partner+">"+data[i].name+"</option>");
+				    }
+				});
+		  }); */
+		  
+		  $("#gameid").change(function(){
+			  var userid = $("#userid").val();
+			  var gameid = $(this).children('option:selected').val();
+			  window.location.href = "user/power?userid="+userid+"&gameid="+gameid;
+		  });
+		});
+	</script>
+</body>
+
+</html>

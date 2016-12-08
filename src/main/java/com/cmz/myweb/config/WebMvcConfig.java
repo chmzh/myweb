@@ -30,6 +30,9 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+import org.springframework.web.servlet.view.velocity.VelocityConfig;
+import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
+import org.springframework.web.servlet.view.velocity.VelocityView;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
@@ -114,6 +117,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		configurer.setDefaultEncoding("UTF-8");
 		return configurer;
 	}
+	@Bean
+	public VelocityConfig velocityConfig(){
+		VelocityConfigurer configurer = new VelocityConfigurer();
+		configurer.setResourceLoaderPath("/WEB-INF/views/");
+		Properties settings = new Properties();
+		settings.setProperty("input.encoding", "UTF-8");
+		settings.setProperty("utput.encoding", "UTF-8");
+		configurer.setVelocityProperties(settings);
+		return configurer;
+	}
 
 	@Bean
 	public ContentNegotiatingViewResolver contentViewResolver(ServletContext context) throws Exception {
@@ -126,10 +139,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		 viewResolver.setSuffix(".jsp");
 		 */
 		
-		UrlBasedViewResolver freeMarkerViewResolver = new UrlBasedViewResolver();
-		freeMarkerViewResolver.setSuffix(".html");
-		freeMarkerViewResolver.setContentType("text/html; charset=utf-8");
-		freeMarkerViewResolver.setViewClass(FreeMarkerView.class);
+		UrlBasedViewResolver urlBasedViewResolver = new UrlBasedViewResolver();
+		urlBasedViewResolver.setSuffix(".html");
+		urlBasedViewResolver.setContentType("text/html; charset=utf-8");
+		//urlBasedViewResolver.setViewClass(FreeMarkerView.class);
+		urlBasedViewResolver.setViewClass(VelocityView.class);
 		
 		 
 		// =========================thymeleaf=============
@@ -159,7 +173,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 		ContentNegotiatingViewResolver contentViewResolver = new ContentNegotiatingViewResolver();
 		contentViewResolver.setContentNegotiationManager(contentNegotiationManager.getObject());
-		contentViewResolver.setViewResolvers(Arrays.<ViewResolver> asList(thymeleafResolver));
+		contentViewResolver.setViewResolvers(Arrays.<ViewResolver> asList(urlBasedViewResolver));
 		contentViewResolver.setDefaultViews(Arrays.<View> asList(defaultView));
 		return contentViewResolver;
 	}

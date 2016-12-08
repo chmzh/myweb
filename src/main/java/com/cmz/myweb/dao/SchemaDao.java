@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import com.cmz.myweb.domain.Schema;
 
 public interface SchemaDao {
-	public final static String Table = "dc_schema";
+	public final static String Table = "`schema`";
 	public final static String fields = "`id`,`name`,`produceid`,`power`,`des`";
 	
 	@Select("SELECT count(1) FROM "+Table)

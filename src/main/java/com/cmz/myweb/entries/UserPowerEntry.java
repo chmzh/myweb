@@ -3,7 +3,6 @@ package com.cmz.myweb.entries;
 public class UserPowerEntry {
 	private String produceid;
 	private String producename;
-
 	private String powers;
 	
 	public String getPowers() {

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.util.ArrayUtils;
 
 import com.cmz.myweb.constant.URLConfig;
-import com.mysql.cj.core.util.StringUtils;
+import com.cmz.myweb.domain.Produce;
+import com.cmz.myweb.domain.SysMenu;
+import com.cmz.myweb.domain.User;
+import com.cmz.myweb.domain.UserPower;
+import com.cmz.myweb.service.ProduceService;
+import com.cmz.myweb.service.SysMenuService;
+import com.cmz.myweb.service.UserPowerService;
+import com.cmz.myweb.service.UserService;
+import com.cmz.myweb.util.CommUtil;
+import com.cmz.myweb.util.MD5Util;
+import com.cmz.myweb.util.PageUtil;
 
 @Controller
 @RequestMapping(URLConfig.USER)
@@ -27,6 +38,8 @@ public class UserController {
 	private SysMenuService sysMenuService;
 	@Autowired
 	private UserPowerService userPowerService;
+	@Autowired
+	private ProduceService produceService;
 	
 	/**
 	 * 用户列表
@@ -135,15 +148,14 @@ public class UserController {
 		}
 	}
 	@RequestMapping(value=URLConfig.POWER)
-	public String userPower(Model model,int userid,String gameid){
-		List<GameConfig> games = gameService.getGames();
-		if(gameid.equals("0")){
-			GameConfig gameConfig = games.get(0);
-			gameid = gameConfig.getGameflag();
+	public String userPower(Model model,int userid,int produceid){
+		List<Produce> produces = produceService.getProduces();
+		if(produceid==0){
+			Produce produce = produces.get(0);
+			produceid = produce.getId();
 		}
-		List<Partner> partners = partnerService.getPartners();
 		
-		UserPower userPower = userPowerService.getUserPower(userid, gameid);
+		UserPower userPower = userPowerService.getUserPower(userid, produceid);
 		//所有的父菜单
 		List<SysMenu> sysMenus = sysMenuService.getSysMenuByPid(0,0,10000);
 		List<SysMenu> subMenus = sysMenuService.getAllSubSysMenu();
@@ -158,21 +170,12 @@ public class UserController {
 				}
 			}
 			
-			String partnerids = userPower.getPartnerid();
-			if(StringUtils.isNotEmpty(partnerids)){
-				String[] strs = partnerids.split(",");
-				for(Partner partner : partners){
-					if(ArrayUtils.contains(strs, partner.getPartner())){
-						partner.setFormchecked(true);
-					}
-				}
-			}
+			
 		}
 		
 		model.addAttribute("userid", userid);
-		model.addAttribute("gameid", gameid);
-		model.addAttribute("games", games);
-		model.addAttribute("partners", partners);
+		model.addAttribute("produceid", produceid);
+		model.addAttribute("produces", produces);
 		model.addAttribute("sysMenus", sysMenus);
 		model.addAttribute("subMenus", subMenus);
 		
@@ -181,7 +184,7 @@ public class UserController {
 	@RequestMapping(value=URLConfig.POWER_AC,method=RequestMethod.POST)
 	public String userPowerAc(HttpServletRequest request,HttpServletResponse response,UserPower userPower){
 		
-		UserPower userPower1 = userPowerService.getUserPower(userPower.getUserid(), userPower.getGameid());
+		UserPower userPower1 = userPowerService.getUserPower(userPower.getUserid(), userPower.getProduceid());
 		int r = 0;
 		if(null!=userPower1){
 			r = userPowerService.update(userPower);
