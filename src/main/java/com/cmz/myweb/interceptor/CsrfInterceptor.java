@@ -21,7 +21,7 @@ public class CsrfInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-
+/*
 		if ("POST".equalsIgnoreCase(request.getMethod())) {
 
 			String CsrfToken = CsrfTokenManager.getTokenFromRequest(request);
@@ -40,7 +40,7 @@ public class CsrfInterceptor extends HandlerInterceptorAdapter {
 			//csrfToken = tokenRepository.loadToken(request);//CsrfTokenManager.createTokenForSession(request.getSession());
 			csrfToken = CsrfTokenManager.createTokenForSession(request.getSession());
 		}
-
+*/
 		return true;
 
 	}
