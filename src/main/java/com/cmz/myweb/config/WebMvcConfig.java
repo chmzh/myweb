@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import javax.servlet.ServletContext;
 
+import org.apache.velocity.app.event.ReferenceInsertionEventHandler.referenceInsertExecutor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.springframework.web.servlet.support.RequestDataValueProcessor;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
@@ -37,6 +39,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import com.cmz.myweb.interceptor.CsrfInterceptor;
 import com.cmz.myweb.interceptor.SystemInterceptor;
 
 @Configuration
@@ -94,18 +97,29 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public RequestMappingHandlerMapping requestMappingHandlerMapping(HandlerInterceptor handlerInterceptor) {
+	public RequestMappingHandlerMapping requestMappingHandlerMapping() {
 		RequestMappingHandlerMapping mapping = new RequestMappingHandlerMapping();
-		mapping.setInterceptors(handlerInterceptor);
+		mapping.setInterceptors(handlerInterceptor(),csrfHandlerInterceptor());
 		return mapping;
 	}
 
+	@Bean
+	public HandlerInterceptor csrfHandlerInterceptor() {
+		CsrfInterceptor interceptor = new CsrfInterceptor();
+		return interceptor;
+	}
+	
 	@Bean
 	public HandlerInterceptor handlerInterceptor() {
 		SystemInterceptor interceptor = new SystemInterceptor();
 		return interceptor;
 	}
-
+//	@Bean
+//	public RequestDataValueProcessor referenceInsertExecutor(){
+//		CsrfRequestDataValueProcessor processor = new CsrfRequestDataValueProcessor();
+//		return processor;
+//	}
+	
 	@Bean
 	public FreeMarkerConfigurer freemarkerConfig() {
 		FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();

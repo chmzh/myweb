@@ -9,6 +9,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
 import org.springframework.web.util.Log4jConfigListener;
 import org.springframework.web.util.WebAppRootListener;
@@ -77,9 +78,9 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
 		//servletContext.addServlet("dispatcher", DispatcherServlet.class).addMapping("/*");
 		
 		
-		//		DelegatingFilterProxy filter = new DelegatingFilterProxy("springSecurityFilterChain");
-//		filter.setContextAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
-//		servletContext.addFilter("springSecurityFilterChain", filter).addMappingForUrlPatterns(null, false, "/*");
+		DelegatingFilterProxy filter = new DelegatingFilterProxy("springSecurityFilterChain");
+		filter.setContextAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
+		servletContext.addFilter("springSecurityFilterChain", filter).addMappingForUrlPatterns(null, false, "/*");
 	}
 
 }

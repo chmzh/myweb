@@ -24,7 +24,8 @@
                                     <br/>
                                     <img style="cursor:pointer;" id="vd_image" onClick="refresh_vdcode();" title="点击图片更新验证码" src="${home}login_code">
                                 </div>
-
+<input type="hidden" name="CSRFToken"
+						value="${CSRFToken}" />
                                 <!-- Change this to a button or input when using this as a form -->
                                         <div class="form-group">
                                         <button class="btn btn-success" type="submit">提交</button><span style="color:red;">#if($err)$err #end</span>
