@@ -1,20 +1,14 @@
 package com.cmz.myweb.interceptor;
 
-import java.net.URLEncoder;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.csrf.CsrfToken;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.cmz.myweb.constant.URLConfig;
 import com.cmz.myweb.util.CsrfTokenManager;
 
 public class CsrfInterceptor extends HandlerInterceptorAdapter {
@@ -32,14 +26,10 @@ public class CsrfInterceptor extends HandlerInterceptorAdapter {
 
 			String CsrfToken = CsrfTokenManager.getTokenFromRequest(request);
 
-			if (CsrfToken == null || !CsrfToken.equals(request.getSession().getAttribute(
+			if (CsrfToken == null || !CsrfToken.equals(request.getSession().getAttribute(CsrfTokenManager.CSRF_TOKEN_FOR_SESSION_ATTR_NAME))) {
 
-					CsrfTokenManager.CSRF_TOKEN_FOR_SESSION_ATTR_NAME))) {
-
-				String reLoginUrl = "/login?backurl="
-
-						+ URLEncoder.encode(getCurrentUrl(request), "utf-8");
-
+				//String reLoginUrl = "/login?backurl=" + URLEncoder.encode(getCurrentUrl(request), "utf-8");
+				String reLoginUrl = "/login";
 				response.sendRedirect(reLoginUrl);
 
 				return false;
