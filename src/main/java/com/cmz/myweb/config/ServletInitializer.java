@@ -67,11 +67,11 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
         //EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD);
         //filterDynamic.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
 		
-        //servletContext.setInitParameter("webAppRootKey", "myweb.root");
-        //servletContext.addListener(WebAppRootListener.class);
-        //servletContext.setInitParameter("log4jConfigLocation", "/WEB-INF/conf/log4j.properties");
+        servletContext.setInitParameter("webAppRootKey", "myweb.root");
+        servletContext.addListener(WebAppRootListener.class);
+        servletContext.setInitParameter("log4jConfigLocation", "/WEB-INF/conf/log4j.properties");
         //servletContext.setInitParameter("log4jRefreshInterval", "2000"); //2秒检查一次日志等级的改变
-        //servletContext.addListener(Log4jConfigListener.class);
+        servletContext.addListener(Log4jConfigListener.class);
         
         ContextUtil.setServletContext(servletContext);
         

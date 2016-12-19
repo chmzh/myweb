@@ -25,6 +25,8 @@ public class URLConfig {
 	public final static String BINDUSER = "binduser";      //删除动作
 	public final static String BINDUSER_AC = "binduser.do";      //删除动作
 	public final static String STATISTIC = "statistic/";           //统计 控制器
+	public final static String NEWS = "news/";
+	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
 	public final static String ADD = "add";            //添加表单页面
