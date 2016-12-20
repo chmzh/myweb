@@ -1,4 +1,4 @@
-package com.cmz.myweb.controller;
+package com.cmz.myweb.admin.controller;
 
 import java.util.List;
 

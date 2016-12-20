@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+/*
+Theme Name: 亲子汇
+Theme URI: http://www.gardenl.com
+
+Author: "沙优网UED团队"
+Author URI: http://www.ishayou.com
+
+Description:亲子汇是一款极简设计的主题，可适用博客，自媒体类网站，主题会持续升级，请大家多关于沙优网动态。
+Version: 0.0001
+
+-------------------------------------------------------------- */
+
+@charset "utf-8";
+html {
+-webkit-text-size-adjust: none;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+ol, ul {
+	list-style: none;
+}
+img {
+	border: 0;
+	height: auto;
+	width: auto;
+}
+
+body {
+	font-family: "Microsoft Yahei", "冬青黑体简体中文 w3";
+	font-size: 14px;
+	background: #fcf7ec;
+	color: #656565;
+	letter-spacing: 0.8px;
+}
+a {
+	color: #666;
+	font-size: 14px;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+a:hover {
+	color:#ff9d00;
+}
+::selection{background:#ff9d00;color:#fff;}
+
+.clear {
+	clear: both;
+}

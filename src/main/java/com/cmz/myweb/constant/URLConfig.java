@@ -2,6 +2,9 @@ package com.cmz.myweb.constant;
 
 public class URLConfig {
 	public final static String HOME_DIR = "/myweb/";
+	
+	public final static String ADMIN_CONTROLLER = "admin/";
+	
 	public final static String LOGIN = "login";   //登陆页面
 	public final static String LOGIN_AC = "login.do";    //登陆动作
 	
