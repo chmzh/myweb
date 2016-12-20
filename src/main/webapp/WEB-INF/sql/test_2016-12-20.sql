@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.15)
 # Database: test
-# Generation Time: 2016-12-20 08:54:51 +0000
+# Generation Time: 2016-12-20 10:05:49 +0000
 # ************************************************************
 
 
@@ -32,6 +32,16 @@ CREATE TABLE `category` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+
+INSERT INTO `category` (`id`, `parentid`, `name`)
+VALUES
+	(1,0,'xx'),
+	(2,1,'xx1');
+
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table news
@@ -178,7 +188,10 @@ VALUES
 	(52,51,'userlogin','list','90天存留',00000001,0),
 	(53,0,'news','','XX1管理',00000000,0),
 	(54,53,'news','add','添加',00000001,0),
-	(55,53,'news','list','列表',00000001,0);
+	(55,53,'news','list','列表',00000001,0),
+	(56,0,'category','','XX2管理',00000000,0),
+	(57,56,'category','list','列表',00000001,0),
+	(58,56,'category','add','添加',00000000,0);
 
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -231,7 +244,7 @@ LOCK TABLES `user_power` WRITE;
 
 INSERT INTO `user_power` (`id`, `userid`, `produceid`, `powers`)
 VALUES
-	(1,1,1,'3,12,13,14,5,6,15,22,23,24,26,28,29,30,32,33,34,35,37,38,39,41,42,43,45,46,47,48,54'),
+	(1,1,1,'3,12,13,14,5,6,15,22,23,24,26,28,29,30,32,33,34,35,37,38,39,41,42,43,45,46,47,48,54,57,58'),
 	(2,1,0,'3,12,13,14,5,6,15,22,23,24,26,28,29,30,32,33,34,35,37,38,39,41,42,43,45,46,47,48,50');
 
 /*!40000 ALTER TABLE `user_power` ENABLE KEYS */;
