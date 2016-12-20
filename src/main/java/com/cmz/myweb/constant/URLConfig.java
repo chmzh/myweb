@@ -30,6 +30,8 @@ public class URLConfig {
 	public final static String STATISTIC = "statistic/";           //统计 控制器
 	public final static String NEWS = "news/";
 	
+	public final static String CATEGORY = "category/";
+	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
 	public final static String ADD = "add";            //添加表单页面

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cmz.myweb.constant.GlobalConstant;
+import com.cmz.myweb.constant.URLConfig;
 import com.cmz.myweb.dao.UserDao;
 import com.cmz.myweb.domain.Resource;
 import com.cmz.myweb.domain.User;
@@ -229,7 +230,7 @@ public class UserService {
 	 * @return
 	 */
 	public boolean verifyPower(HttpServletRequest request,String ma){
-		if(ma.equals("/index") || ma.equals("/message")){
+		if(ma.equals(URLConfig.HOME_DIR+"index") || ma.equals(URLConfig.HOME_DIR+"message")){
 			return true;
 		}
 		
@@ -241,14 +242,15 @@ public class UserService {
 		
 		String[] mas = ma.split("/");
 
-		if(mas.length!=3){
+		if(mas.length!=4){
 			return false;
 		}
 		boolean ok = false;
 		for(Menu menu:menus){
-			if(menu.getModel().equals(mas[1])){
+			String model = mas[2];
+			if(menu.getModel().equals(model)){
 				for(Menu subMenu : menu.getSubMenu()){
-					if(subMenu.getAction().equals(mas[2]) || (subMenu.getAction()+".do").equals(mas[2])){
+					if(subMenu.getAction().equals(mas[3]) || (subMenu.getAction()+".do").equals(mas[3])){
 						ok = true;
 						break;
 					}

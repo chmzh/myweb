@@ -43,11 +43,11 @@ public class SystemInterceptor implements HandlerInterceptor {
 			return false;
 		}
 		
-//		boolean power = userService.verifyPower(request, requestUri);
-//		if(!power){
-//			CommUtil.showMsg(request, response, "该页不存在,请联系管理员", URLConfig.HOME_DIR+URLConfig.INDEX);
-//			return true;
-//		}
+		boolean power = userService.verifyPower(request, requestUri);
+		if(!power){
+			CommUtil.showMsg(request, response, "该页不存在,请联系管理员", URLConfig.HOME_DIR+URLConfig.INDEX);
+			return true;
+		}
 		//log.debug("验证成功");
 
 		// TODO 功能权限验证
