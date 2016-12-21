@@ -72,14 +72,14 @@ background-color:rgba(255,157,0,0.65);
 
 #prev {
   left: 0px;
-  background-image: url(images/arrow-left.png);
+  background-image: url(../images/arrow-left.png);
   background-position: 13px center;
   transform: translateX(15px);
 }
 
 #next {
   right: 0px;
-  background-image: url(images/arrow-right.png);
+  background-image: url(../images/arrow-right.png);
   background-position: 16px center;
   transform: translateX(-15px);
 }

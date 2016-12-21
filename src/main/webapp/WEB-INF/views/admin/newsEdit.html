@@ -18,6 +18,16 @@
                                             <input class="form-control" name="title" placeholder="标题" value="${news.title}">
                                             <p class="help-block"></p>
                                         </div>
+                                        <div class="form-group">
+                                            <label>是否推荐</label>
+                                            
+                                            <label class="radio-inline">
+                                                <input type="radio" #if($news.isRecommend() == true) checked="checked" #end value="1" id="optionsRadiosInline1" name="recommend">是
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" #if($news.isRecommend() == false) checked="checked" #end value="0" id="optionsRadiosInline2" name="recommend">否
+                                            </label>
+                                        </div>
                                        <label>大类</label>
                                         <select class="js-example-basic-single" name="bigid" id="bigid">
                                         #foreach($big in $bigs)
@@ -30,7 +40,10 @@
 										  <option value="$small.getId()" #if($news.getSmallid()==$small.getId()) selected="selected" #end>$small.getName()</option>
 									   #end
 									</select>
-									
+									<input type="text" name="imgsrc" id="imgsrc" value="${news.getImgsrc()}">
+									<div class="form-group">
+										<iframe src="upload/index" frameborder="0" height="30px" scrolling="no"></iframe>
+									</div>
 									<div class="form-group">
                                             <label>导读</label>
                                             <textarea class='form-control' style='background:#f8f8f8' name='desc' placeholder='导读'>${news.getDesc()}</textarea>

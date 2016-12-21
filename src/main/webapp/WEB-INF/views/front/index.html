@@ -220,186 +220,33 @@
 						<time> ${data.getPdate()} </time>
 						- <a href="http://www.qzcole.com/category/yuer/xinli"
 							rel="category tag">心理成长</a> - 阅 ${data.getHit()}
+							#if($data.isRecommend())
+							&nbsp;&nbsp;<span
+							class="zan">推荐</span>
+							#end
 					</address>
 				</div>
-				<div class="zuiyao">
-					<p>${data.getDesc()}</p>
-				</div>
-				<div class="clear"></div>
-			</section>
-		#end
-
-			<section class="list">
-				<div class=" mecc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/942.htm" target="_blank">
-							作为心理老师，我是这样处理校园欺凌事件的 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 12.12 </time>
-						- <a href="http://www.qzcole.com/category/yuer/xinli"
-							rel="category tag">心理成长</a> - 阅 1,303
-					</address>
-				</div>
+				#if($data.getImgsrc()!="")
 				<span class="titleimg"> <a
-					href="http://www.qzcole.com/942.htm" target="_blank"> <img
+					href="detail/index/${data.getId()}" target="_blank"> <img
 						width="700" height="389"
-						src="http://www.qzcole.com/wp-content/uploads/2016/12/efe-700x389.png"
+						src="$data.getImgsrc()"
 						class="attachment-thumbnail size-thumbnail wp-post-image"
 						alt="efe" />
 				</a>
 				</span>
 				<div class=" zaiyao">
-					<p>我在处理欺凌问题的时候，有很多做法是“违规”的。我给了受害学生防卫的权利，变相在鼓励他们打架。我在惩罚的时候，为了挑拨挑事学生的小团体，没有做到一视同仁。我不知道作为一个老师玩“心计”对不对。但这是我能做的最有效的选择。</p>
+					<p>${data.getDesc()}</p>
 				</div>
-				<div class="clear"></div>
-			</section>
-
-
-			<section class="list">
-				<div class="mucc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/909.htm" target="_blank">
-							什么都问孩子好不好，是坑死自己的节奏 | 家庭教养模式 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 12.07 </time>
-						- <a href="http://www.qzcole.com/category/yuer/homeedu"
-							rel="category tag">家庭教育</a> - 阅 2,238 &nbsp;&nbsp;<span
-							class="zan">推荐</span>
-					</address>
-				</div>
+				#else
 				<div class="zuiyao">
-					<p>做什么都要问孩子妈不好，在家庭教养中没有要求的民主其实是溺爱和不尽责任。我可以跟孩子玩得很好，像朋友一样。但终究朋友是起不到塑造人的作用的。父母必须帮助孩子完成从他律到自律的过程。亲子教育中，比民主更重要的是权威。</p>
+					<p>${data.getDesc()}</p>
 				</div>
+				#end
+				
 				<div class="clear"></div>
 			</section>
-
-
-			<section class="list">
-				<div class="mucc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/887.htm" target="_blank">
-							哭是低龄孩子的语言，不允许孩子哭，才是对他最大的伤害 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 12.06 </time>
-						- <a href="http://www.qzcole.com/category/yuer" rel="category tag">孩子教育</a>
-						- 阅 1,001
-					</address>
-				</div>
-				<div class="zuiyao">
-					<p>当孩子哭泣的时候，作为妈妈的我们是怎样做的？通常大人不喜欢孩子哭泣都是放狠话阻止孩子。其实哭是低龄孩子的语言，传递宣泄负能量信息出口。那对于孩子哭泣，父母该如何正确应对处理呢？我们来看看朵妈的思维。</p>
-				</div>
-				<div class="clear"></div>
-			</section>
-
-
-			<section class="list">
-				<div class=" mecc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/868.htm" target="_blank">
-							道德教育不能脱离人性；自己做不到，就别要求孩子 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 12.03 </time>
-						- <a href="http://www.qzcole.com/category/yuer/homeedu"
-							rel="category tag">家庭教育</a> - 阅 1,022
-					</address>
-				</div>
-				<span class="titleimg"> <a
-					href="http://www.qzcole.com/868.htm" target="_blank"> <img
-						width="700" height="389"
-						src="http://www.qzcole.com/wp-content/uploads/2016/12/vrege-700x389.png"
-						class="attachment-thumbnail size-thumbnail wp-post-image"
-						alt="vrege"
-						srcset="http://www.qzcole.com/wp-content/uploads/2016/12/vrege-700x389.png 700w, http://www.qzcole.com/wp-content/uploads/2016/12/vrege-768x427.png 768w, http://www.qzcole.com/wp-content/uploads/2016/12/vrege.png 1000w"
-						sizes="(max-width: 700px) 100vw, 700px" />
-				</a>
-				</span>
-				<div class=" zaiyao">
-					<p>俗话说得好，常在河边走哪有不湿鞋。蕉宝妈发现做家长就像做明星一样，要维护一个光辉的形象非常难，总有打脸的时候。教育孩子理所当然要从真善美出发，无奈自身人性的弱点挥之不去，难免有些言行不一。</p>
-				</div>
-				<div class="clear"></div>
-			</section>
-
-
-			<section class="list">
-				<div class=" mecc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/774.htm" target="_blank">
-							隔代教育（中国式教育），看看那位媳妇能彻底颠覆 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 11.27 </time>
-						- <a href="http://www.qzcole.com/category/yuer/homeedu"
-							rel="category tag">家庭教育</a> - 阅 2,426 &nbsp;&nbsp;<span
-							class="zan">推荐</span>
-					</address>
-				</div>
-				<span class="titleimg"> <a
-					href="http://www.qzcole.com/774.htm" target="_blank"> <img
-						width="700" height="389"
-						src="http://www.qzcole.com/wp-content/uploads/2016/11/jiiij-700x389.png"
-						class="attachment-thumbnail size-thumbnail wp-post-image"
-						alt="jiiij"
-						srcset="http://www.qzcole.com/wp-content/uploads/2016/11/jiiij-700x389.png 700w, http://www.qzcole.com/wp-content/uploads/2016/11/jiiij-768x427.png 768w, http://www.qzcole.com/wp-content/uploads/2016/11/jiiij.png 1000w"
-						sizes="(max-width: 700px) 100vw, 700px" />
-				</a>
-				</span>
-				<div class=" zaiyao">
-					<p>年轻的父母每天都忙于工作，忙于为孩子以后获得更好的生活，更好的教育而忙碌着。迫不得已只能把小孩子交给老人照顾。事实上，这样做是压力减轻了不少，但是你有没有想过，隔代教育，弊始终大于利。</p>
-				</div>
-				<div class="clear"></div>
-			</section>
-
-
-			<section class="list">
-				<div class="mucc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/730.htm" target="_blank">
-							父母控制欲过强 ,孩子受的是终生伤害 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 11.25 </time>
-						- <a href="http://www.qzcole.com/category/yuer/homeedu"
-							rel="category tag">家庭教育</a> - 阅 1,373
-					</address>
-				</div>
-				<div class="zuiyao">
-					<p>世上那位家长都想自已孩子以后过得好，所以家长们都会尽最大的努力，最大可能去满足，甚至强加控制来希望促成他的一切。但家长们你有没有考虑过，因为你的这样做，孩子变得过度依赖了，孩子变得没有主见了，甚至孩子的一生幸福都可能基本毁掉了。</p>
-				</div>
-				<div class="clear"></div>
-			</section>
-
-
-			<section class="list">
-				<div class=" mecc">
-					<h2 class="mecctitle">
-						<a href="http://www.qzcole.com/714.htm" target="_blank">
-							孩子小时候，父母亲就是他的全部，你的观念可能会影响他的一生 </a>
-					</h2>
-					<address class="meccaddress">
-						<time> 11.25 </time>
-						- <a href="http://www.qzcole.com/category/yuer/homeedu"
-							rel="category tag">家庭教育</a> - 阅 2,525
-					</address>
-				</div>
-				<span class="titleimg"> <a
-					href="http://www.qzcole.com/714.htm" target="_blank"> <img
-						width="700" height="389"
-						src="http://www.qzcole.com/wp-content/uploads/2016/11/frefes-700x389.png"
-						class="attachment-thumbnail size-thumbnail wp-post-image"
-						alt="frefes"
-						srcset="http://www.qzcole.com/wp-content/uploads/2016/11/frefes-700x389.png 700w, http://www.qzcole.com/wp-content/uploads/2016/11/frefes-768x427.png 768w, http://www.qzcole.com/wp-content/uploads/2016/11/frefes.png 1000w"
-						sizes="(max-width: 700px) 100vw, 700px" />
-				</a>
-				</span>
-				<div class=" zaiyao">
-					<p>对于2－12的岁孩子来说，父母亲就是他整个世界，就是自已的全部，而你生活中，无论有意无意也好，你的每个生活上各种细致，各种观念，都有可能影响他对现在的看法，对未来的态度。</p>
-				</div>
-				<div class="clear"></div>
-			</section>
+		#end
 			<!--list-->
 			<div class="clear"></div>
 			<div class="pagenavi">

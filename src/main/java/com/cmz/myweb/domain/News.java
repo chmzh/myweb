@@ -2,14 +2,15 @@ package com.cmz.myweb.domain;
 
 public class News {
 	private int id;
-	private String title;
-	private String imgsrc;
+	private String title = "";
+	private String imgsrc = "";
 	private int bigid;
 	private int smallid;
-	private String desc;
-	private String content;
-	private String hit;
+	private String desc = "";
+	private String content = "";
+	private int hit;
 	private String pdate;
+	private boolean recommend;
 	
 	public int getId() {
 		return id;
@@ -36,10 +37,10 @@ public class News {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public String getHit() {
+	public int getHit() {
 		return hit;
 	}
-	public void setHit(String hit) {
+	public void setHit(int hit) {
 		this.hit = hit;
 	}
 	public String getPdate() {
@@ -65,5 +66,11 @@ public class News {
 	}
 	public void setImgsrc(String imgsrc) {
 		this.imgsrc = imgsrc;
+	}
+	public boolean isRecommend() {
+		return recommend;
+	}
+	public void setRecommend(boolean recommend) {
+		this.recommend = recommend;
 	}
 }
