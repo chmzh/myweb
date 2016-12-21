@@ -3,6 +3,7 @@ package com.cmz.myweb.domain;
 public class News {
 	private int id;
 	private String title;
+	private String imgsrc;
 	private int bigid;
 	private int smallid;
 	private String desc;
@@ -58,5 +59,11 @@ public class News {
 	}
 	public void setSmallid(int smallid) {
 		this.smallid = smallid;
+	}
+	public String getImgsrc() {
+		return imgsrc;
+	}
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
 	}
 }

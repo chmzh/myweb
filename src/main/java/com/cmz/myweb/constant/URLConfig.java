@@ -32,6 +32,8 @@ public class URLConfig {
 	
 	public final static String CATEGORY = "category/";
 	
+	public final static String UPLOAD = "upload/";
+	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
 	public final static String ADD = "add";            //添加表单页面
@@ -45,4 +47,7 @@ public class URLConfig {
 	public final static String POWER_AC = "power.do";  //保存权限
 	
 	public final static String JSON = "json";
+	
+	public final static String UPLOADFILE = "uploadfile";
+	public final static String UPLOADFILE1 = "uploadfile1";
 }
