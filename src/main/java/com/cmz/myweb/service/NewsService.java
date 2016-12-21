@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.cmz.myweb.dao.NewsDao;
 import com.cmz.myweb.domain.News;
+import com.cmz.myweb.util.DateTimeUtil;
 
 @Service
 public class NewsService {
@@ -14,6 +15,8 @@ public class NewsService {
 	private NewsDao newsDao;
 	
 	public int add(News news){
+		String curDate = DateTimeUtil.curDateTime();
+		news.setPdate(curDate);
 		return newsDao.add(news);
 	}
 	

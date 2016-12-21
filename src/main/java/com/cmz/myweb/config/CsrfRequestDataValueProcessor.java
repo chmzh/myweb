@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.RequestDataValueProcessor;
 
 import com.cmz.myweb.util.CsrfTokenManager;
-@Component("requestDataValueProcessor")
+//@Component("requestDataValueProcessor")
 public class CsrfRequestDataValueProcessor implements RequestDataValueProcessor {
 
 	@Override

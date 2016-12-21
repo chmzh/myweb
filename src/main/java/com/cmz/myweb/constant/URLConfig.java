@@ -43,4 +43,6 @@ public class URLConfig {
 	
 	public final static String POWER = "power";        //权限管理
 	public final static String POWER_AC = "power.do";  //保存权限
+	
+	public final static String JSON = "json";
 }

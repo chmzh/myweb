@@ -17,7 +17,24 @@
                                             <input class="form-control" name="title" placeholder="标题">
                                             <p class="help-block"></p>
                                         </div>
-                                       
+                                       <label>大类</label>
+                                        <select class="js-example-basic-single" name="bigid" id="bigid">
+                                        #foreach($big in $bigs)
+										  <option value="$big.getId()">$big.getName()</option>
+									   #end
+									</select>
+									<label>小类</label>
+                                        <select class="js-example-basic-single" name="smallid" id="smallid">
+                                        #foreach($small in $smalls)
+										  <option value="$small.getId()">$small.getName()</option>
+									   #end
+									</select>
+									
+									<div class="form-group">
+                                            <label>导读</label>
+                                            <textarea class='form-control' style='background:#f8f8f8' name='desc'  placeholder='导读'></textarea>
+                                            <p class="help-block"></p>
+                                        </div>
                                         <div class="form-group">
                                         <textarea name="content" id="content" rows="10" cols="80">
 							                
@@ -58,7 +75,28 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="assets/dist/js/sb-admin-2.js"></script>
-
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		  $("#bigid").change(function(){
+			  var v = $(this).children('option:selected').val(); 
+			  $.post("category/json",
+					  {
+				  		bigid : v
+					  },
+					  function(data,status){
+				  
+				  //$("#partnerflag").children('option').remove();
+				  $("#smallid").empty();
+				  for(var i = 0; i < data.length; i++)
+				    {
+					  $("#smallid").append("<option value="+data[i].id+">"+data[i].name+"</option>");
+				    }
+				});
+		  });
+		});
+	</script>
+	
 </body>
 
 </html>

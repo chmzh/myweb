@@ -35,9 +35,9 @@ public class SystemInterceptor implements HandlerInterceptor {
 		}
 		
 		
-		
+		boolean isLogin = true;
+/*		
 		boolean isLogin = userService.isLogin(request);
-		
 		if(!isLogin){
 			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.LOGIN);
 			return false;
@@ -48,6 +48,7 @@ public class SystemInterceptor implements HandlerInterceptor {
 			CommUtil.showMsg(request, response, "该页不存在,请联系管理员", URLConfig.HOME_DIR+URLConfig.INDEX);
 			return true;
 		}
+		*/
 		//log.debug("验证成功");
 
 		// TODO 功能权限验证

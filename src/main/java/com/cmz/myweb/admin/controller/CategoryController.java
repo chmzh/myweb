@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cmz.myweb.constant.URLConfig;
 import com.cmz.myweb.domain.Category;
@@ -20,6 +21,7 @@ import com.cmz.myweb.service.SysMenuService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
 import com.cmz.myweb.util.ViewUtil;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping(URLConfig.CATEGORY)
@@ -66,5 +68,13 @@ public class CategoryController {
 
 			
 		}
+	}
+	@RequestMapping(value=URLConfig.JSON,method=RequestMethod.POST)
+	@ResponseBody
+	public String json(HttpServletResponse response,int bigid){
+		response.addHeader("Content-Type", "text/json");
+		List<Category> smalls = categoryService.getCategoryByPid(bigid, 0, 10000);
+		Gson gson = new Gson();
+		return gson.toJson(smalls);
 	}
 }

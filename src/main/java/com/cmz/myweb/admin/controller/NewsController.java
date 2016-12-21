@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cmz.myweb.constant.URLConfig;
+import com.cmz.myweb.domain.Category;
 import com.cmz.myweb.domain.News;
 import com.cmz.myweb.domain.SysMenu;
+import com.cmz.myweb.service.CategoryService;
 import com.cmz.myweb.service.NewsService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
@@ -27,7 +29,8 @@ public class NewsController {
 	
 	@Autowired
 	private NewsService newsService;
-	
+	@Autowired
+	private CategoryService categoryService;
 	
 	@RequestMapping(URLConfig.LIST)
 	public String list(Model model,@RequestParam(name="page",required=false,defaultValue="1")int page){
@@ -42,13 +45,24 @@ public class NewsController {
 	}
 	
 	@RequestMapping(URLConfig.ADD)
-	public String add(){
+	public String add(Model model){
+		
+		List<Category> bigs = categoryService.getCategoryByPid(0,0,10000);
+		List<Category> smalls = categoryService.getCategoryByPid(bigs.get(0).getId(), 0, 10000);
+		model.addAttribute("bigs", bigs);
+		model.addAttribute("smalls", smalls);
 		return ViewUtil.getAdminView("newsAdd");
 	}
 	
 	@RequestMapping(URLConfig.EDIT)
 	public String edit(Model model,int id){
 		News news = newsService.getNewsById(id);
+		
+		List<Category> bigs = categoryService.getCategoryByPid(0,0,10000);
+		List<Category> smalls = categoryService.getCategoryByPid(news.getBigid(), 0, 10000);
+		
+		model.addAttribute("bigs", bigs);
+		model.addAttribute("smalls", smalls);
 		model.addAttribute("news", news);
 		return ViewUtil.getAdminView("newsEdit");
 	}
@@ -57,11 +71,11 @@ public class NewsController {
 	public String addac(HttpServletRequest request,HttpServletResponse response,News news){
 		int r = newsService.add(news);
 		if(r>0){
-			CommUtil.showMsg(request,response, "操作成功", URLConfig.SYSMENU+URLConfig.LIST+"?pageIndex=1");
+			CommUtil.showMsg(request,response, "操作成功", URLConfig.NEWS+URLConfig.LIST+"?pageIndex=1");
 			return null;
 			
 		}else{
-			CommUtil.showMsg(request,response, "操作失败", URLConfig.SYSMENU+URLConfig.ADD);
+			CommUtil.showMsg(request,response, "操作失败", URLConfig.NEWS+URLConfig.ADD);
 			return null;
 
 			
@@ -72,11 +86,11 @@ public class NewsController {
 	public String editac(HttpServletRequest request,HttpServletResponse response,News news){
 		int r = newsService.update(news);
 		if(r>0){
-			CommUtil.showMsg(request,response, "操作成功", URLConfig.SYSMENU+URLConfig.LIST+"?pageIndex=1");
+			CommUtil.showMsg(request,response, "操作成功", URLConfig.NEWS+URLConfig.LIST+"?pageIndex=1");
 			return null;
 			
 		}else{
-			CommUtil.showMsg(request,response, "操作失败", URLConfig.SYSMENU+URLConfig.ADD);
+			CommUtil.showMsg(request,response, "操作失败", URLConfig.NEWS+URLConfig.ADD);
 			return null;
 
 			
