@@ -28,6 +28,6 @@ public interface SysMenuDao {
 	@Select("select s.id,s1.model,s.action,s.name as acname,s1.name as name,s.`visible` from sys_menu as s inner join sys_menu as s1 on s.`parentid`=s1.`id` where s.id in(${ids})")
 	public List<Resource> getUserResources(@Param("ids")String ids);
 
-	@Select("SELECT count(1) FROM "+Table+" WHERE id=0")
+	@Select("SELECT count(1) FROM "+Table+" WHERE parentid=0")
 	public int getCount();
 }

@@ -39,6 +39,7 @@ public class URLConfig {
 	public final static String CITY = "city/";
 	
 	public final static String ORGTYPE = "orgtype/";  //机构类型
+	public final static String ORGANIZITION = "organization/"; //机构信息
 	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
