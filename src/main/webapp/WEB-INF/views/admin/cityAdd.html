@@ -1,0 +1,88 @@
+#parse ( "header.html" )
+<script src="assets/ckeditor/ckeditor.js"></script>
+<body>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           管理 <a href="${home}/city/list">返回</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" action="city/add.do" method="post">
+                                    
+                                    <label>国家</label>
+                                        <select class="js-example-basic-single" name="countryid" id="countryid">
+                                        #foreach($country in $countrys)
+										  <option value="$country.getId()">$country.getName()</option>
+									   #end
+									</select>
+                                    <label>省份</label>
+                                        <select class="js-example-basic-single" name="provinceid" id="provinceid">
+                                        #foreach($province in $provinces)
+										  <option value="$province.getId()">$province.getName()</option>
+									   #end
+									</select>
+                                        <div class="form-group">
+                                            <label>名称</label>
+                                            <input class="form-control" name="name" placeholder="名称">
+                                            <p class="help-block"></p>
+                                        </div>
+                                                                             
+                                        <div class="form-group">
+                                        <button class="btn btn-success" type="submit">提交</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+
+
+    <!-- jQuery -->
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/dist/js/sb-admin-2.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		  $("#countryid").change(function(){
+			  var v = $(this).children('option:selected').val(); 
+			  $.post("province/json",
+					  {
+				  		countryid : v
+					  },
+					  function(data,status){
+				  
+				  //$("#partnerflag").children('option').remove();
+				  $("#provinceid").empty();
+				  for(var i = 0; i < data.length; i++)
+				    {
+					  $("#provinceid").append("<option value="+data[i].id+">"+data[i].name+"</option>");
+				    }
+				});
+		  });
+		});
+	</script>
+	
+</body>
+
+</html>

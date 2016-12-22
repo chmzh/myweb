@@ -108,10 +108,10 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	 * 异常统一处理
 	 * @return
 	 */
-	@Bean
-	public GlobalDefaultExceptionHandler globalDefaultExceptionHandler(){
-		return new GlobalDefaultExceptionHandler();
-	}
+//	@Bean
+//	public GlobalDefaultExceptionHandler globalDefaultExceptionHandler(){
+//		return new GlobalDefaultExceptionHandler();
+//	}
 	
 	@Bean
 	public RequestMappingHandlerMapping requestMappingHandlerMapping() {

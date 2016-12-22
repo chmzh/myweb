@@ -34,6 +34,12 @@ public class URLConfig {
 	
 	public final static String UPLOAD = "upload/";
 	
+	public final static String COUNTRY = "country/";
+	public final static String PROVINCE = "province/";
+	public final static String CITY = "city/";
+	
+	public final static String ORGTYPE = "orgtype/";  //机构类型
+	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
 	public final static String ADD = "add";            //添加表单页面
