@@ -172,7 +172,9 @@ public class UserService {
 		return MD5Util.getMD5(ip+name+time+GlobalConstant.LOGIN_KEY);
 	}
 	
-	
+	public int error(){
+		return userDao.error(null);
+	}
 	
 	/**
 	 * 获取权限菜单

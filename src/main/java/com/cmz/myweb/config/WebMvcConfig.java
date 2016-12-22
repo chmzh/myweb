@@ -8,13 +8,11 @@ import java.util.Properties;
 
 import javax.servlet.ServletContext;
 
-import org.apache.velocity.app.event.ReferenceInsertionEventHandler.referenceInsertExecutor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.accept.ContentNegotiationManagerFactoryBean;
@@ -24,13 +22,11 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.springframework.web.servlet.support.RequestDataValueProcessor;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import org.springframework.web.servlet.view.velocity.VelocityConfig;
 import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
@@ -39,6 +35,7 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import com.cmz.myweb.handler.GlobalDefaultExceptionHandler;
 import com.cmz.myweb.interceptor.CsrfInterceptor;
 import com.cmz.myweb.interceptor.SystemInterceptor;
 
@@ -96,6 +93,26 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		return converter;
 	}
 
+
+//	@Bean
+//	public WebExceptionHandler webExceptionHandler(){
+//		return new WebExceptionHandler();
+//	}
+	
+	@Bean
+	public SimpleMappingExceptionResolver simpleMappingExceptionResolver(){
+		return new SimpleMappingExceptionResolver();
+	}
+	
+	/**
+	 * 异常统一处理
+	 * @return
+	 */
+	@Bean
+	public GlobalDefaultExceptionHandler globalDefaultExceptionHandler(){
+		return new GlobalDefaultExceptionHandler();
+	}
+	
 	@Bean
 	public RequestMappingHandlerMapping requestMappingHandlerMapping() {
 		RequestMappingHandlerMapping mapping = new RequestMappingHandlerMapping();

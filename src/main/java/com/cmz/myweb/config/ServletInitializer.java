@@ -67,6 +67,8 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
         //EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD);
         //filterDynamic.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
 		
+		servletContext.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+		
         servletContext.setInitParameter("webAppRootKey", "myweb.root");
         servletContext.addListener(WebAppRootListener.class);
         servletContext.setInitParameter("log4jConfigLocation", "/WEB-INF/conf/log4j.properties");

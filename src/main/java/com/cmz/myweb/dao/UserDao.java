@@ -41,4 +41,7 @@ public interface UserDao {
 	@Insert("INSERT INTO " + Table + "(" + fields
 			+ ") VALUES(0,#{user.uname},#{user.pwd},#{user.enabled},#{user.qq},#{user.groupid})")
 	public int addUser(@Param("user") User user);
+	
+	@Insert("")
+	public int error(@Param("user") User user);
 }

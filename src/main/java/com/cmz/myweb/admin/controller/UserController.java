@@ -41,6 +41,12 @@ public class UserController {
 	@Autowired
 	private ProduceService produceService;
 	
+	@RequestMapping("err")
+	public String error(Model model){
+		userService.error();
+		return null;
+	}
+	
 	/**
 	 * 用户列表
 	 * @param model
