@@ -35,7 +35,7 @@ public class CommUtil {
 	}
 
 	public static String getCenterURL(String url){
-		return URLConfig.HOME_DIR+url;
+		return URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+url;
 	}
 	
 	public static void showMsg(HttpServletRequest request,HttpServletResponse response,String msg,String url){

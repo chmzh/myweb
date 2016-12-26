@@ -8,6 +8,7 @@ package com.cmz.myweb.domain;
 public class Orgtype {
 	private int id;
 	private String name = "";
+	private String checked="";
 	public int getId() {
 		return id;
 	}
@@ -19,5 +20,11 @@ public class Orgtype {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getChecked() {
+		return checked;
+	}
+	public void setChecked(String checked) {
+		this.checked = checked;
 	}
 }

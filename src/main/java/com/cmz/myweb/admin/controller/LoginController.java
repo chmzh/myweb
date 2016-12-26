@@ -32,6 +32,7 @@ import com.cmz.myweb.domain.User;
 import com.cmz.myweb.service.UserService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.MD5Util;
+import com.cmz.myweb.util.ViewUtil;
 
 @Controller
 public class LoginController {
@@ -39,13 +40,14 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(URLConfig.LOGIN)
+	@RequestMapping("admin/"+URLConfig.LOGIN)
 	public String login(){
-		Log.info("login");
-		return "login";
+
+
+		return ViewUtil.getAdminView("login");
 	}
 	
-	@RequestMapping(URLConfig.LOGOUT)
+	@RequestMapping("admin/"+URLConfig.LOGOUT)
 	public String logout(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
 		userService.unSaveSession(session);

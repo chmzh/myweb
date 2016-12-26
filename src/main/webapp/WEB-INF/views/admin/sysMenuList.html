@@ -1,11 +1,12 @@
 #parse ( "header.html" )
+
 <body>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            游戏接口密钥管理 <a href="${home}game/add">add</a>
+                           资源管理 <a href="admin/sysmenu/add">add</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -14,18 +15,25 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>游戏名称</th>
+                                            <th>菜单名称</th>
+                                            <th>模块(model)</th>
+                                            <th>动作(action)</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        #foreach($produce in $produces)
-                                        <tr class="odd gradeX">
-                                        	<td>$produce.getId()</td>
-                                        	<td>$produce.getName()</td>
-                                            <td><a href="${home}game/edit?id=$produce.getId()">编辑</a></td>
+                                    
+                                    #foreach($menu in $menus)
+                                    	<tr class="odd gradeX">
+                                            <td>$menu.getId()</td>
+                                            <td>$menu.getName()</td>
+                                            <td>$menu.getModel()</td>
+                                            <td>$menu.getAction()</td>
+                                            <td class="center"><a href="admin/sysmenu/edit?id=$menu.getId()">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin/sysmenu/add?id=$menu.getId()">添加子菜单</a></td>
                                         </tr>
-                                     #end   
+                                    #end
+                                    
+                                        
                                         
 
                                     </tbody>
@@ -33,13 +41,7 @@
                             </div>
                             <!-- /.table-responsive -->
                             
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-                                    	<ul class="pagination">${pages}</ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="row"><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination">${pages}</ul></div></div></div>
                             
                         </div>
                         <!-- /.panel-body -->
@@ -52,8 +54,6 @@
             <!-- /.row -->
             
             
-            
-        </div>
         <!-- /#page-wrapper -->
 
 
@@ -78,15 +78,6 @@
                 responsive: true
         });
     });
-	function hiveUpdate(id){
-		if(id == "" || id == 0){
-			alert("id error");
-		}else{
-			if(confirm("确定要重新生成hive映射表吗？")){
-				window.location = '${home}game/hive.do?id='+id;
-			}
-		}
-	}
     </script>
 
 </body>

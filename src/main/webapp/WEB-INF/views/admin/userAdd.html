@@ -1,24 +1,39 @@
 #parse ( "header.html" )
-<script src="assets/ckeditor/ckeditor.js"></script>
+
 <body>
+
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           管理 <a href="admin/country/list">返回</a>
+                           用户管理 <a href="admin/user/list">返回</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="admin/country/edit.do" method="post">
-                                    <input type="hidden" name="id" value="${data.id}">
+                                    <form role="form" action="admin/user/add.do" method="post">
                                         <div class="form-group">
-                                            <label>标题</label>
-                                            <input class="form-control" name="title" placeholder="名称" value="${data.name}">
+                                            <label>用户账号</label>
+                                            <input class="form-control" name="uname" placeholder="用户账号">
                                             <p class="help-block"></p>
                                         </div>
-                                                                            
+                                        <div class="form-group">
+                                            <label>账户密码</label>
+                                            <input class="form-control" name="pwd" placeholder="账户密码">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>是否使用</label>
+                                            
+                                            <label class="radio-inline">
+                                                <input type="radio" checked="" value="1" id="optionsRadiosInline1" name="enabled">是
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0" id="optionsRadiosInline2" name="enabled">否
+                                            </label>
+                                        </div>  
+                                                                              
                                         <div class="form-group">
                                         <button class="btn btn-success" type="submit">提交</button>
                                         </div>
@@ -49,26 +64,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="assets/dist/js/sb-admin-2.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		  $("#bigid").change(function(){
-			  var v = $(this).children('option:selected').val(); 
-			  $.post("admin/category/json",
-					  {
-				  		bigid : v
-					  },
-					  function(data,status){
-				  
-				  //$("#partnerflag").children('option').remove();
-				  $("#smallid").empty();
-				  for(var i = 0; i < data.length; i++)
-				    {
-					  $("#smallid").append("<option value="+data[i].id+">"+data[i].name+"</option>");
-				    }
-				});
-		  });
-		});
-	</script>
+
 </body>
 
 </html>

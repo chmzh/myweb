@@ -16,30 +16,30 @@ public class URLConfig {
 	public final static String INDEX = "index";                //index页
 	
 	//控制器
-	public final static String USER = "user/";         //用户管理 控制器
-	public final static String GROUP = "group/";       //组管理 控制器
-	public final static String RESOURCE = "resource/"; //资源管理 控制器
-	public final static String GAME = "game/";         //游戏管理 控制器
-	public final static String LOG = "log/";           //日志管理 控制器
-	public final static String GAMEPARTNER = "gamepartner/";
-	public final static String GAMESERVER = "gameserver/";
-	public final static String SYSMENU = "sysmenu/";
-	public final static String SCHEMA = "schema/";
-	public final static String BINDUSER = "binduser";      //删除动作
-	public final static String BINDUSER_AC = "binduser.do";      //删除动作
-	public final static String STATISTIC = "statistic/";           //统计 控制器
-	public final static String NEWS = "news/";
+	public final static String USER = ADMIN_CONTROLLER+"user/";         //用户管理 控制器
+	public final static String GROUP = ADMIN_CONTROLLER+"group/";       //组管理 控制器
+	public final static String RESOURCE = ADMIN_CONTROLLER+"resource/"; //资源管理 控制器
+	public final static String GAME = ADMIN_CONTROLLER+"game/";         //游戏管理 控制器
+	public final static String LOG = ADMIN_CONTROLLER+"log/";           //日志管理 控制器
+	public final static String GAMEPARTNER = ADMIN_CONTROLLER+"gamepartner/";
+	public final static String GAMESERVER = ADMIN_CONTROLLER+"gameserver/";
+	public final static String SYSMENU = ADMIN_CONTROLLER+"sysmenu/";
+	public final static String SCHEMA = ADMIN_CONTROLLER+"schema/";
+	public final static String BINDUSER = ADMIN_CONTROLLER+"binduser";      //删除动作
+	public final static String BINDUSER_AC = ADMIN_CONTROLLER+"binduser.do";      //删除动作
+	public final static String STATISTIC = ADMIN_CONTROLLER+"statistic/";           //统计 控制器
+	public final static String NEWS = ADMIN_CONTROLLER+"news/";
 	
-	public final static String CATEGORY = "category/";
+	public final static String CATEGORY = ADMIN_CONTROLLER+"category/";
 	
-	public final static String UPLOAD = "upload/";
+	public final static String UPLOAD = ADMIN_CONTROLLER+"upload/";
 	
-	public final static String COUNTRY = "country/";
-	public final static String PROVINCE = "province/";
-	public final static String CITY = "city/";
+	public final static String COUNTRY = ADMIN_CONTROLLER+"country/";
+	public final static String PROVINCE = ADMIN_CONTROLLER+"province/";
+	public final static String CITY = ADMIN_CONTROLLER+"city/";
 	
-	public final static String ORGTYPE = "orgtype/";  //机构类型
-	public final static String ORGANIZITION = "organization/"; //机构信息
+	public final static String ORGTYPE = ADMIN_CONTROLLER+"orgtype/";  //机构类型
+	public final static String ORGANIZITION = ADMIN_CONTROLLER+"organization/"; //机构信息
 	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表

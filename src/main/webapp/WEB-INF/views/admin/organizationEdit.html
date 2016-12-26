@@ -11,62 +11,63 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="admin/organization/add.do" method="post">
+                                    <form role="form" action="admin/organization/edit.do" method="post">
+                                    <input type="hidden" name="id" value="${data.id}">
                                     <label>国家</label>
                                         <select class="js-example-basic-single" name="countryid" id="countryid">
                                         #foreach($country in $countrys)
-										  <option value="$country.getId()">$country.getName()</option>
+										  <option value="$country.getId()" #if($country.id==$data.countryid) selected="selected" #end>$country.getName()</option>
 									   #end
 									</select>
                                     <label>省份</label>
                                         <select class="js-example-basic-single" name="provinceid" id="provinceid">
                                         #foreach($province in $provinces)
-										  <option value="$province.getId()">$province.getName()</option>
+										  <option value="$province.getId()" #if($province.id==$data.provinceid) selected="selected" #end>$province.getName()</option>
 									   #end
 									</select>
 									<label>城市</label>
                                         <select class="js-example-basic-single" name="cityid" id="cityid">
                                         #foreach($city in $citys)
-										  <option value="$city.getId()">$city.getName()</option>
+										  <option value="$city.getId()" #if($city.id==$data.cityid) selected="selected" #end>$city.getName()</option>
 									   #end
 									</select><br>
                                     <label>机构类型</label>
                                        
                                         #foreach($orgtype in $orgtypes)
 										  <label class="checkbox-inline">
-										  <input type="checkbox" name="orgtypeid" value="$orgtype.getId()" />$orgtype.getName()
+										  <input type="checkbox" name="orgtypeid" ${orgtype.checked} value="$orgtype.getId()" />$orgtype.getName()
 										</label>
 									   #end
 									
                                         <div class="form-group">
                                             <label>名称</label>
-                                            <input class="form-control" name="name" placeholder="名称">
+                                            <input class="form-control" name="name" placeholder="名称" value="${data.name}">
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
                                             <label>创办于</label>
-                                            <input class="form-control" name="startDate" placeholder="创办年月">
+                                            <input class="form-control" name="startDate" placeholder="创办年月" value="${data.startDate}">
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
                                             <label>发源地</label>
-                                            <input class="form-control" name="origin" placeholder="发源地">
+                                            <input class="form-control" name="origin" placeholder="发源地" value="${data.origin}">
                                             <p class="help-block"></p>
                                         </div>
                                          <div class="form-group">
                                             <label>适合年龄</label>
-                                            <input class="form-control" name="minage" placeholder="最小年龄">
-                                            <input class="form-control" name="maxage" placeholder="最大年龄">
+                                            <input class="form-control" name="minage" placeholder="最小年龄" value="${data.minage}">
+                                            <input class="form-control" name="maxage" placeholder="最大年龄" value="${data.maxage}">
                                             <p class="help-block"></p>
                                         </div>  
                                         <div class="form-group">
                                             <label>分店数</label>
-                                            <input class="form-control" name="shops" placeholder="分店数">
+                                            <input class="form-control" name="shops" placeholder="分店数" value="${data.shops}">
                                             <p class="help-block"></p>
                                         </div>    
                                         <div class="form-group">
                                         <textarea name="content" id="content" rows="10" cols="80">
-							                
+							                ${data.content}
 							            </textarea>
 							            </div>
 							            <script>

@@ -232,7 +232,7 @@ public class UserService {
 	 * @return
 	 */
 	public boolean verifyPower(HttpServletRequest request,String ma){
-		if(ma.equals(URLConfig.HOME_DIR+"index") || ma.equals(URLConfig.HOME_DIR+"message")){
+		if(ma.equals(URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+"index") || ma.equals(URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+"message")){
 			return true;
 		}
 		
@@ -244,15 +244,15 @@ public class UserService {
 		
 		String[] mas = ma.split("/");
 
-		if(mas.length!=4){
+		if(mas.length!=5){
 			return false;
 		}
 		boolean ok = false;
 		for(Menu menu:menus){
-			String model = mas[2];
+			String model = mas[3];
 			if(menu.getModel().equals(model)){
 				for(Menu subMenu : menu.getSubMenu()){
-					if(subMenu.getAction().equals(mas[3]) || (subMenu.getAction()+".do").equals(mas[3])){
+					if(subMenu.getAction().equals(mas[4]) || (subMenu.getAction()+".do").equals(mas[4])){
 						ok = true;
 						break;
 					}

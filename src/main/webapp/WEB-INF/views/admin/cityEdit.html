@@ -6,12 +6,12 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           管理 <a href="${home}/city/list">返回</a>
+                           管理 <a href="admin//city/list">返回</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="city/edit.do" method="post">
+                                    <form role="form" action="admin/city/edit.do" method="post">
                                     
                                     <label>国家</label>
                                         <select class="js-example-basic-single" name="countryid" id="countryid">
@@ -66,7 +66,7 @@
 	$(document).ready(function(){
 		  $("#countryid").change(function(){
 			  var v = $(this).children('option:selected').val(); 
-			  $.post("province/json",
+			  $.post("admin/province/json",
 					  {
 				  		countryid : v
 					  },

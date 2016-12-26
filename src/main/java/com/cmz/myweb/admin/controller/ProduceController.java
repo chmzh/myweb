@@ -22,6 +22,7 @@ import com.cmz.myweb.domain.Produce;
 import com.cmz.myweb.service.ProduceService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
+import com.cmz.myweb.util.ViewUtil;
 
 @Controller()
 @RequestMapping(URLConfig.GAME)
@@ -42,12 +43,12 @@ public class ProduceController {
 		model.addAttribute("pages", PageUtil.getPages(page, count, num, URLConfig.GAME+URLConfig.LIST, null));
 		model.addAttribute("produces",produces);
         
-        return "produceList";
+        return ViewUtil.getAdminView("produceList");
     }
 	
 	@RequestMapping(URLConfig.ADD)
     public String gameAdd(HttpServletRequest request,HttpServletResponse response,Model model) {
-		return "produceAdd";
+		return ViewUtil.getAdminView("produceAdd");
 	}
 	
 	@RequestMapping(URLConfig.ADD_AC)
@@ -78,7 +79,7 @@ public class ProduceController {
 		Produce produce = produceService.getById(id);
 		
 		model.addAttribute("produce",produce);
-        return "produceEdit";
+		return ViewUtil.getAdminView("produceEdit");
     }
 	
 	@RequestMapping(URLConfig.EDIT_AC)

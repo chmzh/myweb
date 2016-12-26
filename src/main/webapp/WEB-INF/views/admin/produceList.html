@@ -1,12 +1,11 @@
 #parse ( "header.html" )
-
 <body>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           管理 <a href="admin/news/add">add</a>
+                            游戏接口密钥管理 <a href="admin/game/add">add</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -15,20 +14,18 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>标题</th>
+                                            <th>游戏名称</th>
+                                            <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                    #foreach($data in $datas)
-                                    	<tr class="odd gradeX">
-                                            <td>${data.getId()}</td>
-                                            <td>${data.getTitle()}</td>
-                                            <td class="center"><a href="admin/news/edit?id=${data.getId()}">编辑</a></td>
+                                        #foreach($produce in $produces)
+                                        <tr class="odd gradeX">
+                                        	<td>$produce.getId()</td>
+                                        	<td>$produce.getName()</td>
+                                            <td><a href="admin/game/edit?id=$produce.getId()">编辑</a></td>
                                         </tr>
-                                    #end
-                                    
-                                        
+                                     #end   
                                         
 
                                     </tbody>
@@ -36,7 +33,13 @@
                             </div>
                             <!-- /.table-responsive -->
                             
-                            <div class="row"><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination">${pages}</ul></div></div></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                                    	<ul class="pagination">${pages}</ul>
+                                    </div>
+                                </div>
+                            </div>
                             
                         </div>
                         <!-- /.panel-body -->
@@ -49,6 +52,8 @@
             <!-- /.row -->
             
             
+            
+        </div>
         <!-- /#page-wrapper -->
 
 
@@ -73,6 +78,15 @@
                 responsive: true
         });
     });
+	function hiveUpdate(id){
+		if(id == "" || id == 0){
+			alert("id error");
+		}else{
+			if(confirm("确定要重新生成hive映射表吗？")){
+				window.location = '${home}game/hive.do?id='+id;
+			}
+		}
+	}
     </script>
 
 </body>

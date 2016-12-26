@@ -6,7 +6,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           管理 <a href="admin/news/add">add</a>
+                           架构管理 <a href="admin/schema/add">add</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -15,16 +15,21 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>标题</th>
+                                            <th>名称</th>
+                                            <th>所属游戏</th>
+                                            <th>描述</th>
+                                            <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     
                                     #foreach($data in $datas)
                                     	<tr class="odd gradeX">
-                                            <td>${data.getId()}</td>
-                                            <td>${data.getTitle()}</td>
-                                            <td class="center"><a href="admin/news/edit?id=${data.getId()}">编辑</a></td>
+                                            <td>$data.getId()</td>
+                                            <td>$data.getName()</td>
+                                            <td>$data.getProduceid()</td>
+                                            <td>$data.getDes()</td>
+                                            <td class="center"><a href="admin/schema/edit?id=$data.getId()">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin/schema/binduser?schemaid=$data.getId()">绑定用户</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                         </tr>
                                     #end
                                     

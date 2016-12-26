@@ -12,7 +12,6 @@ import com.cmz.myweb.service.NewsService;
 import com.cmz.myweb.util.ViewUtil;
 
 @Controller
-
 public class IndexFrontController {
 	
 	@Autowired

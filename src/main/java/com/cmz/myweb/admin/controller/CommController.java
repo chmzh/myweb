@@ -4,17 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cmz.myweb.util.ViewUtil;
+
 @Controller
 public class CommController {
-	@RequestMapping("empty")
+	@RequestMapping("admin/empty")
 	public String empty(){
-		return "empty";
+		return ViewUtil.getAdminView("empty");
 	}
 	
-	@RequestMapping("message")
+	@RequestMapping("admin/message")
 	public String succMsg(Model model,String msg,String url){
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
-		return "message";
+		return ViewUtil.getAdminView("message");
 	}
 }

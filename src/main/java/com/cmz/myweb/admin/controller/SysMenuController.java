@@ -17,6 +17,7 @@ import com.cmz.myweb.domain.SysMenu;
 import com.cmz.myweb.service.SysMenuService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
+import com.cmz.myweb.util.ViewUtil;
 
 @Controller
 @RequestMapping(URLConfig.SYSMENU)
@@ -33,7 +34,7 @@ public class SysMenuController {
 		List<SysMenu> menus = sysMenuService.getSysMenuByPid(0,from,num);
 		model.addAttribute("pages", PageUtil.getPages(page, count, num, URLConfig.SYSMENU+URLConfig.LIST,null));
 		model.addAttribute("menus",menus);
-		return "sysMenuList";
+		return ViewUtil.getAdminView("sysMenuList");
 	}
 	
 	@RequestMapping(value=URLConfig.ADD)
@@ -49,7 +50,7 @@ public class SysMenuController {
 			model.addAttribute("model", "");
 		}
 		
-		return "sysMenuAdd";
+		return ViewUtil.getAdminView("sysMenuAdd");
 	}
 	
 	@RequestMapping(value=URLConfig.ADD_AC,method=RequestMethod.POST)

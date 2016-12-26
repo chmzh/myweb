@@ -1,27 +1,33 @@
 #parse ( "header.html" )
-<script src="assets/ckeditor/ckeditor.js"></script>
+
 <body>
+
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           管理 <a href="admin/country/list">返回</a>
+                           用户管理 <a href="admin/user/list">返回</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="admin/country/edit.do" method="post">
-                                    <input type="hidden" name="id" value="${data.id}">
-                                        <div class="form-group">
-                                            <label>标题</label>
-                                            <input class="form-control" name="title" placeholder="名称" value="${data.name}">
-                                            <p class="help-block"></p>
-                                        </div>
-                                                                            
-                                        <div class="form-group">
-                                        <button class="btn btn-success" type="submit">提交</button>
-                                        </div>
+                                    <form role="form" action="admin/user/schema.do" method="post">
+                                    <input type="hidden" name="userid" id="userid" value="${userid}"> 
+
+
+											<label>选择架构</label>
+											
+	
+											<label class="checkbox-inline">
+										  <input type="checkbox" name="schemaid" />
+										</label>
+
+											<br>
+                                                                       
+                                     <div class="form-group">
+                                     <button class="btn btn-success" type="submit">提交</button>
+                                     </div>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -49,23 +55,30 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="assets/dist/js/sb-admin-2.js"></script>
+
 	<script type="text/javascript">
 	$(document).ready(function(){
-		  $("#bigid").change(function(){
+		  /* $("#gameid").change(function(){
 			  var v = $(this).children('option:selected').val(); 
-			  $.post("admin/category/json",
+			  $.post("gamepartner/ajax_ps",
 					  {
-				  		bigid : v
+				  		gameflag : v
 					  },
 					  function(data,status){
 				  
 				  //$("#partnerflag").children('option').remove();
-				  $("#smallid").empty();
+				  $("#partnerid").empty();
 				  for(var i = 0; i < data.length; i++)
 				    {
-					  $("#smallid").append("<option value="+data[i].id+">"+data[i].name+"</option>");
+					  $("#partnerid").append("<option value="+data[i].partner+">"+data[i].name+"</option>");
 				    }
 				});
+		  }); */
+		  
+		  $("#gameid").change(function(){
+			  var userid = $("#userid").val();
+			  var gameid = $(this).children('option:selected').val();
+			  window.location.href = "admin/user/power?userid="+userid+"&gameid="+gameid;
 		  });
 		});
 	</script>

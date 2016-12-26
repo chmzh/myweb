@@ -28,6 +28,7 @@ import com.cmz.myweb.service.UserSchemaService;
 import com.cmz.myweb.service.UserService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
+import com.cmz.myweb.util.ViewUtil;
 
 @Controller
 @RequestMapping(URLConfig.SCHEMA)
@@ -53,7 +54,7 @@ public class SchemaController {
 		List<Schema> datas = schemaService.list(from, num);
 		model.addAttribute("pages", PageUtil.getPages(page, count, num, URLConfig.SCHEMA+URLConfig.LIST,null));
 		model.addAttribute("datas",datas);
-		return "schemaList";
+		return ViewUtil.getAdminView("schemaList");
 	}
 	@RequestMapping(URLConfig.ADD)
 	public String add(Model model){
@@ -65,7 +66,7 @@ public class SchemaController {
 		model.addAttribute("produces", produces);
 		model.addAttribute("sysMenus", sysMenus);
 		model.addAttribute("subMenus", subMenus);
-		return "schemaAdd";
+		return ViewUtil.getAdminView("schemaAdd");
 	}
 	@RequestMapping(value=URLConfig.ADD_AC,method=RequestMethod.POST)
 	public String addac(HttpServletRequest request,HttpServletResponse response,Schema schema){
@@ -109,7 +110,7 @@ public class SchemaController {
 		model.addAttribute("schema",schema);
 		model.addAttribute("sysMenus", sysMenus);
 		model.addAttribute("subMenus", subMenus);
-		return "schemaEdit";
+		return ViewUtil.getAdminView("schemaEdit");
 	}
 	
 	@RequestMapping(value=URLConfig.EDIT_AC,method=RequestMethod.POST)
@@ -146,7 +147,7 @@ public class SchemaController {
 		model.addAttribute("users",users);
 		model.addAttribute("schema",schema);
 		model.addAttribute("ouserids", builder.toString());
-		return "schemaBindUser";
+		return ViewUtil.getAdminView("schemaBindUser");
 	}
 	@RequestMapping(value=URLConfig.BINDUSER_AC,method=RequestMethod.POST)
 	public String bindUserAc(HttpServletRequest request,HttpServletResponse response,String ouserids,String userid,int schemaid){

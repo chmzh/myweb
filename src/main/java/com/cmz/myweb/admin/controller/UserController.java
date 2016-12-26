@@ -26,6 +26,7 @@ import com.cmz.myweb.service.UserService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.MD5Util;
 import com.cmz.myweb.util.PageUtil;
+import com.cmz.myweb.util.ViewUtil;
 
 @Controller
 @RequestMapping(URLConfig.USER)
@@ -61,7 +62,7 @@ public class UserController {
 		List<User> users = userService.getUsers(from, num);
 		model.addAttribute("pages", PageUtil.getPages(page, count, num, URLConfig.USER+URLConfig.LIST,null));
 		model.addAttribute("users",users);
-		return "userList";
+		return ViewUtil.getAdminView("userList");
 	}
 	/**
 	 * 添加用户页面
@@ -70,7 +71,7 @@ public class UserController {
 	 */
 	@RequestMapping(URLConfig.ADD)
 	public String userForm(){
-		return "userAdd";
+		return ViewUtil.getAdminView("userAdd");
 	}
 	
 	@RequestMapping(value=URLConfig.ADD_AC,method=RequestMethod.POST)
@@ -113,7 +114,7 @@ public class UserController {
 		
 		User user = userService.getById(id);
 		model.addAttribute("user",user);
-        return "userEdit";
+		return ViewUtil.getAdminView("userEdit");
     }
 	
 	@RequestMapping(value=URLConfig.EDIT_AC,method=RequestMethod.POST)
@@ -185,7 +186,7 @@ public class UserController {
 		model.addAttribute("sysMenus", sysMenus);
 		model.addAttribute("subMenus", subMenus);
 		
-		return "userPower";
+		return ViewUtil.getAdminView("userPower");
 	}
 	@RequestMapping(value=URLConfig.POWER_AC,method=RequestMethod.POST)
 	public String userPowerAc(HttpServletRequest request,HttpServletResponse response,UserPower userPower){

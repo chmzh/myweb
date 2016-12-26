@@ -16,6 +16,7 @@ import com.cmz.myweb.entries.UserPowerEntry;
 import com.cmz.myweb.service.ProduceService;
 import com.cmz.myweb.service.UserPowerService;
 import com.cmz.myweb.service.UserService;
+import com.cmz.myweb.util.ViewUtil;
 
 @Controller
 public class IndexController {
@@ -27,7 +28,7 @@ public class IndexController {
 	@Autowired
 	private UserPowerService userPowerService;
 	
-	@RequestMapping("index")
+	@RequestMapping("admin/index")
 	public String index(HttpServletRequest request,HttpServletResponse response,Model model){
 		String uname = userService.loginUser(request);
 		model.addAttribute("adminUser",uname);
@@ -39,6 +40,6 @@ public class IndexController {
 		List<UserPowerEntry> userPowers = userPowerService.getUserPowerEntrys(userService.loginUserid(request));
 		model.addAttribute("userPowers", userPowers);
 		
-		return "index";
+		return ViewUtil.getAdminView("index");
 	}
 }
