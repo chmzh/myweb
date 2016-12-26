@@ -16,7 +16,7 @@ import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping(URLConfig.ARTICLE)
-public class ArticleController {
+public class ArticleFrontController {
 	
 	@Autowired
 	private NewsService newsService;
