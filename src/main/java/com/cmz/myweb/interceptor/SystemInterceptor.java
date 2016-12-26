@@ -40,13 +40,13 @@ public class SystemInterceptor implements HandlerInterceptor {
 		
 		boolean isLogin = userService.isLogin(request);
 		if(!isLogin){
-			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+URLConfig.LOGIN);
+			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.LOGIN);
 			return false;
 		}
 		
 		boolean power = userService.verifyPower(request, requestUri);
 		if(!power){
-			CommUtil.showMsg(request, response, "该页不存在,请联系管理员", URLConfig.HOME_DIR+URLConfig.INDEX);
+			CommUtil.showMsg(request, response, "该页不存在,请联系管理员", URLConfig.HOME_DIR+URLConfig.ADMIN_INDEX);
 			return true;
 		}
 		
