@@ -214,7 +214,7 @@
 			<section class="list">
 				<div class="mucc">
 					<h2 class="mecctitle">
-						<a href="detail/index/${data.getId()}" target="_blank">${data.getTitle()}</a>
+						<a href="front/article/detail/${data.getId()}" target="_blank">${data.getTitle()}</a>
 					</h2>
 					<address class="meccaddress">
 						<time> ${data.getPdate()} </time>
@@ -228,7 +228,7 @@
 				</div>
 				#if($data.getImgsrc()!="")
 				<span class="titleimg"> <a
-					href="detail/index/${data.getId()}" target="_blank"> <img
+					href="front/article/detail/${data.getId()}" target="_blank"> <img
 						width="700" height="389"
 						src="$data.getImgsrc()"
 						class="attachment-thumbnail size-thumbnail wp-post-image"
