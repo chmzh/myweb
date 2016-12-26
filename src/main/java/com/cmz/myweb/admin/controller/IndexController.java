@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cmz.myweb.constant.URLConfig;
 import com.cmz.myweb.domain.User;
 import com.cmz.myweb.entries.Menu;
 import com.cmz.myweb.entries.UserPowerEntry;
@@ -28,7 +29,7 @@ public class IndexController {
 	@Autowired
 	private UserPowerService userPowerService;
 	
-	@RequestMapping("admin/index")
+	@RequestMapping(URLConfig.ADMIN_INDEX)
 	public String index(HttpServletRequest request,HttpServletResponse response,Model model){
 		String uname = userService.loginUser(request);
 		model.addAttribute("adminUser",uname);

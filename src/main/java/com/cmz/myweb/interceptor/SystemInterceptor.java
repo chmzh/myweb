@@ -29,7 +29,8 @@ public class SystemInterceptor implements HandlerInterceptor {
 				requestUri.indexOf("customer/api")>0 ||
 				requestUri.indexOf("customer/api/server/op")>0 ||
 				requestUri.indexOf("test")>0 ||
-				requestUri.indexOf("api/st")>0
+				requestUri.indexOf("api/st")>0 ||
+				requestUri.indexOf("front")>0
 				) {
 			return true;
 		}

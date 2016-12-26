@@ -13,7 +13,7 @@ public class URLConfig {
 	
 	public final static String LOGIN_CODE_IMG = ADMIN_CONTROLLER+"login_code";    //验证码
 	
-	public final static String INDEX = "index";                //index页
+	public final static String ADMIN_INDEX = ADMIN_CONTROLLER+"index";                //index页
 	
 	//控制器
 	public final static String USER = ADMIN_CONTROLLER+"user/";         //用户管理 控制器
@@ -57,4 +57,13 @@ public class URLConfig {
 	
 	public final static String UPLOADFILE = "uploadfile";
 	public final static String UPLOADFILE1 = "uploadfile1";
+	
+	
+	//前台
+	public final static String FRONT = "front/";
+	
+	public final static String ARTICLE = FRONT+"article/";
+	
+	public final static String INDEX = "index";
+	public final static String DETAIL = "detail";
 }
