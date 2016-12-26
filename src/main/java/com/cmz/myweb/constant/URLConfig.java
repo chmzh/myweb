@@ -63,6 +63,7 @@ public class URLConfig {
 	public final static String FRONT = "front/";
 	
 	public final static String ARTICLE = FRONT+"article/";
+	public final static String ORG = FRONT+"org/";
 	
 	public final static String INDEX = "index";
 	public final static String DETAIL = "detail";
