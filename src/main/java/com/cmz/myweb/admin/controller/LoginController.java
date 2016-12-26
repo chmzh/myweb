@@ -40,14 +40,14 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("admin/"+URLConfig.LOGIN)
+	@RequestMapping(URLConfig.LOGIN)
 	public String login(){
 
 
 		return ViewUtil.getAdminView("login");
 	}
 	
-	@RequestMapping("admin/"+URLConfig.LOGOUT)
+	@RequestMapping(URLConfig.LOGOUT)
 	public String logout(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
 		userService.unSaveSession(session);

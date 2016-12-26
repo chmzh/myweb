@@ -5,13 +5,13 @@ public class URLConfig {
 	
 	public final static String ADMIN_CONTROLLER = "admin/";
 	
-	public final static String LOGIN = "login";   //登陆页面
-	public final static String LOGIN_AC = "login.do";    //登陆动作
+	public final static String LOGIN = ADMIN_CONTROLLER+"login";   //登陆页面
+	public final static String LOGIN_AC = ADMIN_CONTROLLER+"login.do";    //登陆动作
 	
-	public final static String LOGOUT = "logout";   //登陆页面
+	public final static String LOGOUT = ADMIN_CONTROLLER+"logout";   //登陆页面
 
 	
-	public final static String LOGIN_CODE_IMG = "login_code";    //验证码
+	public final static String LOGIN_CODE_IMG = ADMIN_CONTROLLER+"login_code";    //验证码
 	
 	public final static String INDEX = "index";                //index页
 	
