@@ -41,6 +41,8 @@ public class URLConfig {
 	public final static String ORGTYPE = ADMIN_CONTROLLER+"orgtype/";  //机构类型
 	public final static String ORGANIZITION = ADMIN_CONTROLLER+"organization/"; //机构信息
 	
+	public final static String ACTIVITY = ADMIN_CONTROLLER+"activity/";
+	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
 	public final static String ADD = "add";            //添加表单页面

@@ -40,7 +40,7 @@ public class SystemInterceptor implements HandlerInterceptor {
 		
 		boolean isLogin = userService.isLogin(request);
 		if(!isLogin){
-			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.LOGIN);
+			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+URLConfig.LOGIN);
 			return false;
 		}
 		
