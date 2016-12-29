@@ -13,21 +13,22 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="admin/activity/edit.do" method="post">
+                                    <input type="hidden" name="id" value="${data.id}">
                                         <div class="form-group">
                                             <label>标题</label>
-                                            <input class="form-control" name="title" placeholder="标题">
+                                            <input class="form-control" name="title" placeholder="标题" value="${data.title}">
                                             <p class="help-block"></p>
                                         </div>
-                                        开始日期:<input size="16" type="text" value="${startDate}" name="sdate" readonly class="form_datetime">
-                                        结束日期:<input size="16" type="text" value="${endDate}" name="edate" readonly class="form_datetime1">
+                                        开始日期:<input size="16" type="text" value="${data.sdate}"" name="sdate" readonly class="form_datetime">
+                                        结束日期:<input size="16" type="text" value="${data.edate}"" name="edate" readonly class="form_datetime1">
                                        <div class="form-group">
                                             <label>地址</label>
-                                            <input class="form-control" name="address" placeholder="地址">
+                                            <input class="form-control" name="address" placeholder="地址" value="${data.address}">
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
                                             <label>参与人</label>
-                                            <input class="form-control" name="participants" placeholder="参与人">
+                                            <input class="form-control" name="participants" placeholder="参与人" value="${data.participants}">
                                             <p class="help-block"></p>
                                         </div>
 									<input type="text" name="imgsrc" id="imgsrc">
@@ -37,7 +38,7 @@
 									
                                         <div class="form-group">
                                         <textarea name="content" id="content" rows="10" cols="80">
-							                
+							                ${data.content}
 							            </textarea>
 							            </div>
 							            <script>
