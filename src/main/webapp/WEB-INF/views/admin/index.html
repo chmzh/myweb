@@ -86,6 +86,7 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li> #foreach($menu in $menus)
+						#if(${menu.isVisible()})
 						<li><a href="javascript:;"><i
 								class="fa fa-bar-chart-o fa-fw"></i> ${menu.getName()}<span
 								class="fa arrow"></span></a>
@@ -95,7 +96,7 @@
 								<li><a
 									href="${home}admin/${menu.getModel()}/${subMenu.getAction()}"
 									target="mainFrame">${subMenu.getName()}</a></li> #end #end
-							</ul> <!-- /.nav-second-level --></li> #end
+							</ul> <!-- /.nav-second-level --></li> #end #end
 
 
 						<!-- 

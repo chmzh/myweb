@@ -212,6 +212,7 @@ public class UserService {
 				menu1.setId(id);
 				menu1.setModel(model);
 				menu1.setName(name);
+				menu1.setVisible(visible);
 				menus.add(menu1);
 			}
 			
