@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.15)
 # Database: test
-# Generation Time: 2016-12-30 01:49:56 +0000
+# Generation Time: 2016-12-30 02:11:47 +0000
 # ************************************************************
 
 
@@ -42,7 +42,7 @@ LOCK TABLES `activity` WRITE;
 
 INSERT INTO `activity` (`id`, `sdate`, `edate`, `address`, `participants`, `title`, `content`, `imgsrc`)
 VALUES
-	(1,'1899-12-01','1899-12-09','地址1','参与人1','活动1','<p>内容</p>\r\n',NULL);
+	(1,'1899-12-01','1899-12-09','地址1','参与人1','活动1','<p>内容</p>\r\n','/myweb//uploadfiles/ff-21.png');
 
 /*!40000 ALTER TABLE `activity` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -396,7 +396,9 @@ VALUES
 	(85,83,'activity','add','添加',00000000,0),
 	(86,83,'activity','edit','编辑',00000000,0),
 	(87,0,'upload','','文件上传',00000000,0),
-	(88,87,'upload','index','上传',00000000,0);
+	(88,87,'upload','index','上传',00000000,0),
+	(89,87,'upload','uploadfile','上传action',00000000,0),
+	(90,87,'upload','uploadfile1','活动管理上传',00000000,0);
 
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -449,7 +451,7 @@ LOCK TABLES `user_power` WRITE;
 
 INSERT INTO `user_power` (`id`, `userid`, `produceid`, `powers`)
 VALUES
-	(1,1,1,'3,12,13,14,5,6,15,22,23,24,26,54,55,82,57,58,59,61,62,63,65,66,67,72,69,70,71,74,75,76,78,79,80,84,85,86,88'),
+	(1,1,1,'3,12,13,14,5,6,15,22,23,24,26,54,55,82,57,58,59,61,62,63,65,66,67,72,69,70,71,74,75,76,78,79,80,84,85,86,88,89,90'),
 	(2,1,0,'3,12,13,14,5,6,15,22,23,24,26,28,29,30,32,33,34,35,37,38,39,41,42,43,45,46,47,48,50');
 
 /*!40000 ALTER TABLE `user_power` ENABLE KEYS */;
