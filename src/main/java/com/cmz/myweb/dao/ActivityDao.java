@@ -11,7 +11,7 @@ import com.cmz.myweb.domain.Activity;
 
 public interface ActivityDao {
 	public final static String Table = "`activity`";
-	public final static String fields = "`id`,`sdate`,`edate`,`address`,`participants`,`title`,`content`";
+	public final static String fields = "`id`,`sdate`,`edate`,`address`,`participants`,`title`,`content`,`imgsrc`";
 	
 	@Select("SELECT COUNT(1) FROM "+Table)
 	public int count();
@@ -22,9 +22,9 @@ public interface ActivityDao {
 	@Select("SELECT "+fields+" FROM "+Table+"WHERE id=#{id}")
 	public Activity getActivityById(@Param("id")int id);
 	
-	@Insert("INSERT INTO "+Table+"("+fields+")VALUES(0,#{a.sdate},#{a.edate},#{a.address},#{a.participants},#{a.title},#{a.content})")
+	@Insert("INSERT INTO "+Table+"("+fields+")VALUES(0,#{a.sdate},#{a.edate},#{a.address},#{a.participants},#{a.title},#{a.content}),#{a.imgsrc})")
 	public int add(@Param("a")Activity activity);
 	
-	@Update("UPDATE "+Table+" SET `sdate`=#{a.sdate},`edate`=#{a.edate},`address`=#{a.address},`participants`=#{a.participants},`title`=#{a.title},`content`=#{a.content} WHERE id=#{a.id}")
+	@Update("UPDATE "+Table+" SET `sdate`=#{a.sdate},`edate`=#{a.edate},`address`=#{a.address},`participants`=#{a.participants},`title`=#{a.title},`content`=#{a.content},`imgsrc`=#{a.imgsrc} WHERE id=#{a.id}")
 	public int update(@Param("a")Activity activity);
 }
