@@ -4,10 +4,11 @@ public class Activity {
 	private int id;
 	private String sdate;
 	private String edate;
-	private String address;
-	private String participants;
-	private String title;
-	private String content;
+	private String address="";
+	private String participants="";
+	private String title="";
+	private String content="";
+	private String imgsrc="";
 	public int getId() {
 		return id;
 	}
@@ -49,5 +50,11 @@ public class Activity {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getImgsrc() {
+		return imgsrc;
+	}
+	public void setImgsrc(String imgsrc) {
+		this.imgsrc = imgsrc;
 	}
 }
