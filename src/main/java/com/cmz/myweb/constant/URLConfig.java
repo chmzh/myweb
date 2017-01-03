@@ -5,10 +5,10 @@ public class URLConfig {
 	
 	public final static String ADMIN_CONTROLLER = "admin/";
 	
-	public final static String LOGIN = ADMIN_CONTROLLER+"login";   //登陆页面
-	public final static String LOGIN_AC = ADMIN_CONTROLLER+"login.do";    //登陆动作
+	public final static String ADMIN_LOGIN = ADMIN_CONTROLLER+"login";   //登陆页面
+	public final static String ADMIN_LOGIN_AC = ADMIN_CONTROLLER+"login.do";    //登陆动作
 	
-	public final static String LOGOUT = ADMIN_CONTROLLER+"logout";   //登陆页面
+	public final static String ADMIN_LOGOUT = ADMIN_CONTROLLER+"logout";   //登陆页面
 
 	
 	public final static String LOGIN_CODE_IMG = ADMIN_CONTROLLER+"login_code";    //验证码
@@ -64,6 +64,7 @@ public class URLConfig {
 	//前台
 	public final static String FRONT = "front/";
 	
+	public final static String LOGIN = FRONT+"login/";
 	public final static String ARTICLE = FRONT+"article/";
 	public final static String ORG = FRONT+"org/";
 	

@@ -21,8 +21,8 @@ public class SystemInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String requestUri = request.getRequestURI();
-		if (requestUri.indexOf(URLConfig.LOGIN_AC) > 0 || 
-				requestUri.indexOf(URLConfig.LOGIN) > 0 || 
+		if (requestUri.indexOf(URLConfig.ADMIN_LOGIN_AC) > 0 || 
+				requestUri.indexOf(URLConfig.ADMIN_LOGIN) > 0 || 
 				requestUri.indexOf(URLConfig.LOGIN_CODE_IMG)>0||
 				requestUri.indexOf("json")>0 ||
 				requestUri.indexOf("browser")>0 ||
@@ -40,7 +40,7 @@ public class SystemInterceptor implements HandlerInterceptor {
 		
 		boolean isLogin = userService.isLogin(request);
 		if(!isLogin){
-			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+URLConfig.LOGIN);
+			response.sendRedirect(URLConfig.HOME_DIR+URLConfig.ADMIN_CONTROLLER+URLConfig.ADMIN_LOGIN);
 			return false;
 		}
 		

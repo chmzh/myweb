@@ -40,22 +40,22 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(URLConfig.LOGIN)
+	@RequestMapping(URLConfig.ADMIN_LOGIN)
 	public String login(){
 
 
 		return ViewUtil.getAdminView("login");
 	}
 	
-	@RequestMapping(URLConfig.LOGOUT)
+	@RequestMapping(URLConfig.ADMIN_LOGOUT)
 	public String logout(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
 		userService.unSaveSession(session);
-		CommUtil.showMsg(request,response, "注销登陆成功!", URLConfig.LOGIN);
+		CommUtil.showMsg(request,response, "注销登陆成功!", URLConfig.ADMIN_LOGIN);
 		return null;
 	}
 	
-	@RequestMapping(value=URLConfig.LOGIN_AC,method=RequestMethod.POST)
+	@RequestMapping(value=URLConfig.ADMIN_LOGIN_AC,method=RequestMethod.POST)
 	public String login_ac(HttpServletRequest request,HttpServletResponse response,
 			HttpSession session,Model model,String uname,String pwd,String code){
 		
