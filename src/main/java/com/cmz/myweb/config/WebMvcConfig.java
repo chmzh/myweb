@@ -40,7 +40,7 @@ import com.cmz.myweb.interceptor.CsrfInterceptor;
 import com.cmz.myweb.interceptor.SystemInterceptor;
 
 @Configuration
-@ComponentScan(basePackages = {"com.cmz.myweb.controller","com.cmz.myweb.admin.controller", "com.cmz.myweb.service" })
+@ComponentScan(basePackages = {"com.cmz.myweb.controller","com.cmz.myweb.admin.controller", "com.cmz.myweb.service","com.cmz.myweb.admin.service" })
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	

@@ -14,7 +14,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@MapperScan("com.cmz.myweb.dao")
+@MapperScan({"com.cmz.myweb.dao","com.cmz.myweb.admin.dao"})
 @PropertySource("/WEB-INF/conf/jdbc.properties")
 @EnableTransactionManagement
 // @Order(1)
