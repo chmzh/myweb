@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cmz.myweb.admin.domain.Category;
+import com.cmz.myweb.admin.domain.News;
+import com.cmz.myweb.admin.domain.SysMenu;
+import com.cmz.myweb.admin.service.CategoryService;
+import com.cmz.myweb.admin.service.NewsService;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.domain.Category;
-import com.cmz.myweb.domain.News;
-import com.cmz.myweb.domain.SysMenu;
-import com.cmz.myweb.service.CategoryService;
-import com.cmz.myweb.service.NewsService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
 import com.cmz.myweb.util.ViewUtil;

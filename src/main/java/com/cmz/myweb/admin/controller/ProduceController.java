@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cmz.myweb.admin.domain.Produce;
+import com.cmz.myweb.admin.service.ProduceService;
 import com.cmz.myweb.constant.GlobalConstant;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.domain.Produce;
-import com.cmz.myweb.service.ProduceService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
 import com.cmz.myweb.util.ViewUtil;

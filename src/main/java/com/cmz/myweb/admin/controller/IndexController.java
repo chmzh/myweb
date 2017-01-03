@@ -10,13 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cmz.myweb.admin.domain.User;
+import com.cmz.myweb.admin.service.ProduceService;
+import com.cmz.myweb.admin.service.UserPowerService;
+import com.cmz.myweb.admin.service.UserService;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.domain.User;
 import com.cmz.myweb.entries.Menu;
 import com.cmz.myweb.entries.UserPowerEntry;
-import com.cmz.myweb.service.ProduceService;
-import com.cmz.myweb.service.UserPowerService;
-import com.cmz.myweb.service.UserService;
 import com.cmz.myweb.util.ViewUtil;
 
 @Controller

@@ -3,9 +3,9 @@ package com.cmz.myweb.controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cmz.myweb.admin.domain.News;
+import com.cmz.myweb.admin.service.NewsService;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.domain.News;
-import com.cmz.myweb.service.NewsService;
 import com.cmz.myweb.util.ViewUtil;
 
 import java.util.List;

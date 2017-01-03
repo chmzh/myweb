@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cmz.myweb.admin.service.UserService;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.service.UserService;
 import com.cmz.myweb.util.CommUtil;
 
 public class SystemInterceptor implements HandlerInterceptor {

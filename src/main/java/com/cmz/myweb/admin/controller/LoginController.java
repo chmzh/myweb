@@ -27,9 +27,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //import org.patchca.filter.predefined.CurvesRippleFilterFactory;
 //import org.patchca.filter.predefined.DiffuseRippleFilterFactory;
 
+import com.cmz.myweb.admin.domain.User;
+import com.cmz.myweb.admin.service.UserService;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.domain.User;
-import com.cmz.myweb.service.UserService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.MD5Util;
 import com.cmz.myweb.util.ViewUtil;

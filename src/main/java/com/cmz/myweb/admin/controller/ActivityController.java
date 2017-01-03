@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.cmz.myweb.admin.domain.Activity;
+import com.cmz.myweb.admin.service.ActivityService;
 import com.cmz.myweb.constant.URLConfig;
-import com.cmz.myweb.domain.Activity;
-import com.cmz.myweb.service.ActivityService;
 import com.cmz.myweb.util.CommUtil;
 import com.cmz.myweb.util.PageUtil;
 import com.cmz.myweb.util.ViewUtil;

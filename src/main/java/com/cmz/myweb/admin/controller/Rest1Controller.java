@@ -3,7 +3,7 @@ package com.cmz.myweb.admin.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cmz.myweb.domain.User;
+import com.cmz.myweb.admin.domain.User;
 
 @RestController
 @RequestMapping("/rest/")
