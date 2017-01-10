@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.15)
 # Database: test
-# Generation Time: 2017-01-10 08:03:00 +0000
+# Generation Time: 2017-01-10 09:23:06 +0000
 # ************************************************************
 
 
@@ -428,7 +428,11 @@ VALUES
 	(87,0,'upload','','文件上传',00000000,0),
 	(88,87,'upload','index','上传',00000000,0),
 	(89,87,'upload','uploadfile','上传action',00000000,0),
-	(90,87,'upload','uploadfile1','活动管理上传',00000000,0);
+	(90,87,'upload','uploadfile1','活动管理上传',00000000,0),
+	(91,0,'tea','','茶点',00000001,0),
+	(92,91,'tea','list','列表',00000001,0),
+	(93,91,'tea','add','添加',00000000,0),
+	(94,91,'tea','edit','编辑',00000000,0);
 
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -444,11 +448,20 @@ CREATE TABLE `tea` (
   `classifyid` int(11) NOT NULL,
   `name` varchar(64) NOT NULL DEFAULT '',
   `imgsrc` varchar(128) NOT NULL DEFAULT '',
-  `price` decimal(3,2) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `desc` varchar(128) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `tea` WRITE;
+/*!40000 ALTER TABLE `tea` DISABLE KEYS */;
+
+INSERT INTO `tea` (`id`, `classifyid`, `name`, `imgsrc`, `price`, `desc`)
+VALUES
+	(1,1,'品名1','',10.00,'品名1');
+
+/*!40000 ALTER TABLE `tea` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table user
@@ -498,7 +511,7 @@ LOCK TABLES `user_power` WRITE;
 
 INSERT INTO `user_power` (`id`, `userid`, `produceid`, `powers`)
 VALUES
-	(1,1,1,'3,12,13,14,5,6,15,22,23,24,26,54,55,82,57,58,59,61,62,63,65,66,67,72,69,70,71,74,75,76,78,79,80,84,85,86,88,89,90'),
+	(1,1,1,'3,12,13,14,5,6,15,22,23,24,26,54,55,82,57,58,59,61,62,63,65,66,67,72,69,70,71,74,75,76,78,79,80,84,85,86,88,89,90,92,93,94'),
 	(2,1,0,'3,12,13,14,5,6,15,22,23,24,26,28,29,30,32,33,34,35,37,38,39,41,42,43,45,46,47,48,50');
 
 /*!40000 ALTER TABLE `user_power` ENABLE KEYS */;

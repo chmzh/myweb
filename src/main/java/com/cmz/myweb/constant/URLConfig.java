@@ -43,6 +43,9 @@ public class URLConfig {
 	
 	public final static String ACTIVITY = ADMIN_CONTROLLER+"activity/";
 	
+	
+	public final static String TEA = ADMIN_CONTROLLER+"tea/";         
+	
 	//页面 动作 资源
 	public final static String LIST = "list";          //列表
 	public final static String ADD = "add";            //添加表单页面

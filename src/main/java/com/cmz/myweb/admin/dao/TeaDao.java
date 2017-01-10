@@ -13,7 +13,7 @@ import com.cmz.myweb.admin.domain.Tea;
 public interface TeaDao {
 	
 	public final static String Table = "tea";
-	public final static String fields = "`id`,`name`,`classify`,`imgsrc`,`price`,`desc`";
+	public final static String fields = "`id`,`name`,`classifyid`,`imgsrc`,`price`,`desc`";
 	
 	@Select("SELECT "+fields+" FROM "+Table +" WHERE `id`=#{id} LIMIT 1")
 	public Tea getById(@Param("id")int id);
@@ -31,10 +31,10 @@ public interface TeaDao {
 	
 
 	
-	@Update("UPDATE "+Table+" set name=#{p.name},classify=#{p.classify},imgsrc=#{p.imgsrc},price=#{p.price},`desc`=#{p.desc} WHERE `id`=#{p.id}")
+	@Update("UPDATE "+Table+" set name=#{p.name},classifyid=#{p.classifyid},imgsrc=#{p.imgsrc},price=#{p.price},`desc`=#{p.desc} WHERE `id`=#{p.id}")
 	public int update(@Param("p")Tea tea);
 	
-	@Insert("INSERT INTO "+Table+"("+fields+") VALUES(0,#{p.name},#{p.classify},#{p.imgsrc},#{p.price},#{p.desc})")
+	@Insert("INSERT INTO "+Table+"("+fields+") VALUES(0,#{p.name},#{p.classifyid},#{p.imgsrc},#{p.price},#{p.desc})")
 	public int add(@Param("p")Tea tea);
 	
 	@Delete("delete from "+Table+" WHERE `id`=#{id}")

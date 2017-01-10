@@ -3,7 +3,7 @@ package com.cmz.myweb.admin.domain;
 public class Tea {
 	private int id;
 	private String name;
-	private int classify;
+	private int classifyid;
 	private String imgsrc;
 	private double price;
 	private String desc;
@@ -38,10 +38,10 @@ public class Tea {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public int getClassify() {
-		return classify;
+	public int getClassifyid() {
+		return classifyid;
 	}
-	public void setClassify(int classify) {
-		this.classify = classify;
+	public void setClassifyid(int classifyid) {
+		this.classifyid = classifyid;
 	}
 }
