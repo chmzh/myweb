@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.15)
 # Database: test
-# Generation Time: 2017-01-10 07:39:37 +0000
+# Generation Time: 2017-01-10 08:03:00 +0000
 # ************************************************************
 
 
@@ -152,6 +152,36 @@ VALUES
 
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table order_tea
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `order_tea`;
+
+CREATE TABLE `order_tea` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `orderid` varchar(32) NOT NULL,
+  `teaid` int(11) NOT NULL,
+  `status` tinyint(11) NOT NULL COMMENT '1:已上桌,2:准备中',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table orders
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `orders`;
+
+CREATE TABLE `orders` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `orderid` varchar(32) NOT NULL DEFAULT '',
+  `money` decimal(3,2) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table organization
@@ -414,22 +444,8 @@ CREATE TABLE `tea` (
   `classifyid` int(11) NOT NULL,
   `name` varchar(64) NOT NULL DEFAULT '',
   `imgsrc` varchar(128) NOT NULL DEFAULT '',
-  `price` int(11) NOT NULL,
+  `price` decimal(3,2) NOT NULL,
   `desc` varchar(128) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-# Dump of table teaclassify
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `teaclassify`;
-
-CREATE TABLE `teaclassify` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` int(11) NOT NULL,
-  `name` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
